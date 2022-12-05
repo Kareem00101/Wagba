@@ -19,6 +19,7 @@
     <string name="prompt_sign_in">Sign In</string>
     <string name="prompt_sign_up">Sign Up</string>
     <string name="button_sign_in">Sign In</string>
+    <string name="button_google_login">Sign in with Google</string>
     <string name="button_sign_up">Sign Up</string>
     <string name="title_login">Login</string>
     <string name="title_sign_up">Create Account</string>

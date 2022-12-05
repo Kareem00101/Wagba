@@ -4,17 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstFragment">
+    tools:context=".FirstFragment"
 
-    <Button
-        android:id="@+id/btn_sign_in"
-        android:layout_width="wrap_content"
+    android:background="@drawable/orangewave">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_google_login"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
         android:layout_marginBottom="100dp"
-        android:text="@string/button_sign_in"
+        android:background="@drawable/auth_button"
+        android:text="@string/button_google_login"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+
         app:layout_constraintBottom_toTopOf="@+id/login_bottom_text"
-        app:layout_constraintEnd_toEndOf="@+id/link_sign_in"
-        tools:ignore="DuplicateSpeakableTextCheck" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/title_login_page"
+
+        tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_sign_in"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/auth_button"
+        android:text="@string/button_sign_in"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toTopOf="@+id/btn_google_login"
+        app:layout_constraintEnd_toEndOf="@+id/btn_google_login"
+        app:layout_constraintStart_toStartOf="@+id/title_login_page"
+
+        tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
     <TextView
         android:id="@+id/login_bottom_text"
@@ -23,6 +48,8 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="25dp"
         android:text="@string/login_bottom_text"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -33,10 +60,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:text="@string/prompt_sign_in"
+        android:textColor="@color/primary_orange"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/login_bottom_text"
-        app:layout_constraintTop_toTopOf="@+id/login_bottom_text" />
+        app:layout_constraintTop_toTopOf="@+id/login_bottom_text"
+        tools:ignore="TextContrastCheck"
+        />
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/login_mail_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -49,9 +80,12 @@
         app:layout_constraintEnd_toEndOf="@+id/login_passwd_input"
         app:layout_constraintStart_toStartOf="@+id/title_login_page"
         app:layout_constraintTop_toBottomOf="@+id/title_login_page"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck"
 
-    <EditText
+        android:textCursorDrawable="@drawable/orange_cursor"
+        app:backgroundTint="@color/light3_orange"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/login_passwd_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -63,25 +97,32 @@
         app:layout_constraintEnd_toEndOf="@+id/btn_sign_in"
         app:layout_constraintStart_toStartOf="@+id/title_login_page"
         app:layout_constraintTop_toBottomOf="@+id/login_mail_input"
-        android:autofillHints="" />
+        android:autofillHints=""
+
+        android:textCursorDrawable="@drawable/orange_cursor"
+        app:backgroundTint="@color/light3_orange"/>
 
     <TextView
         android:id="@+id/title_login_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="100dp"
         android:text="@string/title_login"
+        android:textColor="@color/primary_orange"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/label_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/label_email"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/login_mail_input"
         app:layout_constraintStart_toStartOf="@+id/login_mail_input" />
 
@@ -90,6 +131,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/label_password"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/login_passwd_input"
         app:layout_constraintStart_toStartOf="@+id/login_passwd_input" />
 </androidx.constraintlayout.widget.ConstraintLayout>

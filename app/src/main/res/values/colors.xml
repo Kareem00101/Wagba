@@ -10,4 +10,13 @@
 
     <color name="primary_orange">#ffa111</color>
     <color name="secondary_orange">#ffaa28</color>
+    <color name="light1_orange">#ffb440</color>
+    <color name="light2_orange">#ffbb53</color>
+    <color name="light3_orange">#ffc366</color>
+    <color name="light4_orange">#ffca79</color>
+    <color name="light5_orange">#ffd28c</color>
+    <color name="light6_orange">#ffd99f</color>
+    <color name="light7_orange">#ffe1b2</color>
+    <color name="light8_orange">#ffe8c5</color>
+
 </resources>
