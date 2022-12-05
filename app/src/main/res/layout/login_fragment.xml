@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FirstFragment">
+
+    <Button
+        android:id="@+id/btn_sign_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:text="@string/button_sign_in"
+        app:layout_constraintBottom_toTopOf="@+id/login_bottom_text"
+        app:layout_constraintEnd_toEndOf="@+id/link_sign_in"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <TextView
+        android:id="@+id/login_bottom_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="25dp"
+        android:text="@string/login_bottom_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/link_sign_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="@string/prompt_sign_in"
+        app:layout_constraintStart_toEndOf="@+id/login_bottom_text"
+        app:layout_constraintTop_toTopOf="@+id/login_bottom_text" />
+
+    <EditText
+        android:id="@+id/login_mail_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/hint_mail"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/login_passwd_input"
+        app:layout_constraintStart_toStartOf="@+id/title_login_page"
+        app:layout_constraintTop_toBottomOf="@+id/title_login_page"
+        tools:ignore="TextContrastCheck" />
+
+    <EditText
+        android:id="@+id/login_passwd_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hint_passwd"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_sign_in"
+        app:layout_constraintEnd_toEndOf="@+id/btn_sign_in"
+        app:layout_constraintStart_toStartOf="@+id/title_login_page"
+        app:layout_constraintTop_toBottomOf="@+id/login_mail_input"
+        android:autofillHints="" />
+
+    <TextView
+        android:id="@+id/title_login_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="170dp"
+        android:text="@string/title_login"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/label_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_email"
+        app:layout_constraintBottom_toTopOf="@+id/login_mail_input"
+        app:layout_constraintStart_toStartOf="@+id/login_mail_input" />
+
+    <TextView
+        android:id="@+id/label_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_password"
+        app:layout_constraintBottom_toTopOf="@+id/login_passwd_input"
+        app:layout_constraintStart_toStartOf="@+id/login_passwd_input" />
+</androidx.constraintlayout.widget.ConstraintLayout>

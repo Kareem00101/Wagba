@@ -8,14 +8,25 @@
     <string name="previous">Previous</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="hello_second_fragment">Hello second fragment</string>
+
+    <!-- Authentication Strings -->
     <string name="title_activity_authentication">AuthenticationActivity</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
+    <string name="label_email">Email</string>
+    <string name="label_password">Password</string>
+    <string name="login_bottom_text">Already Have An Account?</string>
+    <string name="signup_bottom_text">Don\'t Have An Account?</string>
+    <string name="prompt_sign_in">Sign In</string>
+    <string name="prompt_sign_up">Sign Up</string>
+    <string name="button_sign_in">Sign In</string>
+    <string name="button_sign_up">Sign Up</string>
+    <string name="title_login">Login</string>
+    <string name="title_sign_up">Create Account</string>
+
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="hint_passwd">************</string>
+    <string name="hint_mail">userexample@gmail.com</string>
+    <!--End of Authentication Strings-->
 </resources>
