@@ -13,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="80dp"
         android:background="@drawable/auth_button"
         android:text="@string/button_google_login"
         android:textColor="#FFFFFF"
@@ -55,52 +55,52 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/link_sign_in"
+        android:id="@+id/link_to_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:text="@string/prompt_sign_in"
+        android:text="@string/prompt_sign_up"
         android:textColor="@color/primary_orange"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/login_bottom_text"
         app:layout_constraintTop_toTopOf="@+id/login_bottom_text"
-        tools:ignore="TextContrastCheck"
-        />
+        tools:ignore="TextContrastCheck" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/login_mail_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="10dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/hint_mail"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
+        android:textCursorDrawable="@drawable/orange_cursor"
+        app:backgroundTint="@color/light3_orange"
+
+        app:layout_constraintBottom_toTopOf="@+id/login_passwd_input"
         app:layout_constraintEnd_toEndOf="@+id/login_passwd_input"
         app:layout_constraintStart_toStartOf="@+id/title_login_page"
         app:layout_constraintTop_toBottomOf="@+id/title_login_page"
-        tools:ignore="TextContrastCheck"
-
-        android:textCursorDrawable="@drawable/orange_cursor"
-        app:backgroundTint="@color/light3_orange"/>
+        tools:ignore="TextContrastCheck" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/login_passwd_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/hint_passwd"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        android:textCursorDrawable="@drawable/orange_cursor"
+        app:backgroundTint="@color/light3_orange"
+
         app:layout_constraintBottom_toTopOf="@+id/btn_sign_in"
         app:layout_constraintEnd_toEndOf="@+id/btn_sign_in"
-        app:layout_constraintStart_toStartOf="@+id/title_login_page"
-        app:layout_constraintTop_toBottomOf="@+id/login_mail_input"
-        android:autofillHints=""
-
-        android:textCursorDrawable="@drawable/orange_cursor"
-        app:backgroundTint="@color/light3_orange"/>
+        app:layout_constraintStart_toStartOf="@+id/title_login_page" />
 
     <TextView
         android:id="@+id/title_login_page"
@@ -117,7 +117,7 @@
         tools:ignore="TextContrastCheck" />
 
     <TextView
-        android:id="@+id/label_email"
+        android:id="@+id/label_email_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/label_email"
@@ -127,7 +127,7 @@
         app:layout_constraintStart_toStartOf="@+id/login_mail_input" />
 
     <TextView
-        android:id="@+id/label_password"
+        android:id="@+id/label_password_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/label_password"

@@ -14,8 +14,9 @@
     <string name="title_activity_authentication">AuthenticationActivity</string>
     <string name="label_email">Email</string>
     <string name="label_password">Password</string>
-    <string name="login_bottom_text">Already Have An Account?</string>
-    <string name="signup_bottom_text">Don\'t Have An Account?</string>
+    <string name="label_confirm_password">Confirm Password</string>
+    <string name="signup_bottom_text">Already Have An Account?</string>
+    <string name="login_bottom_text">Don\'t Have An Account?</string>
     <string name="prompt_sign_in">Sign In</string>
     <string name="prompt_sign_up">Sign Up</string>
     <string name="button_sign_in">Sign In</string>
