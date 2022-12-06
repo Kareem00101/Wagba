@@ -1,13 +1,16 @@
 package com.example.wagba;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -18,6 +21,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
@@ -29,20 +33,27 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class SignInActivity extends AppCompatActivity {
 
-    /* Used Variables */
+    /** Used Variables **/
 
-    // For Google Authentication
+    /* For Google Authentication */
     private GoogleSignInClient client;
 
 
-    // For Firebase
+    /* For Firebase */
     FirebaseAuth auth;
     FirebaseDatabase database;
 
 
-    // For View Binding
+    /* View Binding */
     private ActivitySignInBinding binding;
     Button google_btn;
+    // --
+    TextView to_signup;
+    // --
+    EditText user_mail;
+    EditText user_passwd;
+    Button sign_in_btn;
+    // --
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,28 +89,58 @@ public class SignInActivity extends AppCompatActivity {
         google_btn = binding.btnGoogleLogin;
         google_btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                signIn();
+            public void onClick(View v)
+            {
+                GoogleSignIn();
             }
         });
 
         /*** End Of Integrating Google Sign In ***/
 
+
+        /* To Go To Sign Up Page Functionality */
+        to_signup = binding.linkToSignup;
+        to_signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(SignInActivity.this,SignUpActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        /** UserMail / Password Sign In Functionality **/
+
+        /* Required Binding */
+        sign_in_btn = binding.btnSignIn;
+        user_mail = binding.loginMailInput;
+        user_passwd = binding.loginPasswdInput;
+
+        sign_in_btn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                NormalSignIn(user_mail.getText().toString(), user_passwd.getText().toString());
+            }
+        });
     }
+
 
 
 
     /*** Google Authentication Supporting Functions ***/
 
     // # Sign In Functionality
-    void signIn(){
+    void GoogleSignIn()
+    {
         Intent signInIntent = client.getSignInIntent();
         startActivityForResult(signInIntent,1000);
     }
 
     // # Sign In Result
     @Override
-    protected void onActivityResult(int requestCode, int resultCode,Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode,Intent data)
+    {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 1000){
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
@@ -108,8 +149,10 @@ public class SignInActivity extends AppCompatActivity {
                 AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(),null);
                 auth.signInWithCredential(credential).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
-                    public void onSuccess(AuthResult authResult) {
-                        if(task.isSuccessful()){
+                    public void onSuccess(AuthResult authResult)
+                    {
+                        if(task.isSuccessful())
+                        {
                             FirebaseUser user = auth.getCurrentUser();
                             users my_users = new users();
                             assert my_users != null;
@@ -122,12 +165,14 @@ public class SignInActivity extends AppCompatActivity {
 
                             // # Finally Move to Main Activity Upon Success
                             navigateToMainActivity();
-                        } else{
+                        } else
+                        {
                             Toast.makeText(SignInActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
-            } catch (ApiException e) {
+            } catch (ApiException e)
+            {
                 Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
             }
         }
@@ -138,14 +183,50 @@ public class SignInActivity extends AppCompatActivity {
 
 
 
+    /*** Normal Authentication Supporting Functions ***/
+
+    private void NormalSignIn(String user_mail_p, String user_passwd_p)
+    {
+        if(TextUtils.isEmpty(user_mail_p) || TextUtils.isEmpty(user_passwd_p))
+        {
+            Toast.makeText(getApplicationContext(), "Please fill the requirements", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            auth.signInWithEmailAndPassword(user_mail_p, user_passwd_p)
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>()
+                    {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task)
+                        {
+                            if (task.isSuccessful())
+                            {
+                                Toast.makeText(getApplicationContext(), "successful login", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            }
+                            else
+                            {
+                                Toast.makeText(getApplicationContext(), "Log in Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+        }
+    }
+
+    /*** End of Normal Authentication Supporting Functions ***/
+
+
+
     /*** Extra Supporting Functions ***/
 
     // # Navigate to Main Intent
-    void navigateToMainActivity(){
+    void navigateToMainActivity()
+    {
         finish();
         Intent intent = new Intent(SignInActivity.this,MainActivity.class);
         startActivity(intent);
     }
+
 
     /*** End of Extra Supporting Functions ***/
 
