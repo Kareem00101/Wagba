@@ -29,6 +29,6 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="hint_passwd">password</string>
-    <string name="hint_mail">userexample@gmail.com</string>
+    <string name="hint_mail">studentID@eng.asu.edu.eg</string>
     <!--End of Authentication Strings-->
 </resources>

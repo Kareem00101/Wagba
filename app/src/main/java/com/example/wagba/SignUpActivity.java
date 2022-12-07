@@ -82,6 +82,7 @@ public class SignUpActivity extends AppCompatActivity
         {
             @Override
             public void onClick(View v) {
+                boolean mail_check = checkMail(user_mail.getText().toString());
                 boolean password_check = checkMatchingPasswords(user_passwd.getText().toString(), user_cpasswd.getText().toString());
                 if(password_check == true)
                 {
@@ -96,8 +97,27 @@ public class SignUpActivity extends AppCompatActivity
     } // end of onCreate
 
 
-
     /** Registration Supporting Functions **/
+
+    private boolean checkMail(String user_mail_p)
+    {
+        if (TextUtils.isEmpty(user_mail_p))
+        {
+            user_mail.setError("email cannot be empty");
+            user_mail.requestFocus();
+            return false;
+        }
+        else if(!(user_mail_p.contains("@eng.asu.edu.eg")))
+        {
+            user_mail.setError("use an appropriate student mail");
+            user_mail.requestFocus();
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
 
 
     private boolean checkMatchingPasswords(String user_passwd_p, String user_cpasswd_p)
@@ -121,15 +141,9 @@ public class SignUpActivity extends AppCompatActivity
 
     private void createUser(String user_mail_p, String user_passwd_p)
     {
-        if (TextUtils.isEmpty(user_mail_p))
-        {
-            user_mail.setError("email cannot be empty");
-            user_mail.requestFocus();
-        }
-        else
-        {
-            auth.createUserWithEmailAndPassword(user_mail_p, user_passwd_p)
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>()
+
+        auth.createUserWithEmailAndPassword(user_mail_p, user_passwd_p)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>()
                     {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task)
@@ -144,8 +158,7 @@ public class SignUpActivity extends AppCompatActivity
                                 Toast.makeText(getApplicationContext(), "Registration Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
-                    });
-        }
+                });
     }
 
 
