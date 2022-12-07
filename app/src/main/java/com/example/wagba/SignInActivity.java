@@ -31,7 +31,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class SignInActivity extends AppCompatActivity {
+public class SignInActivity extends AppCompatActivity
+{
 
     /** Used Variables **/
 
@@ -56,7 +57,8 @@ public class SignInActivity extends AppCompatActivity {
     // --
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
 
         /*Disabling Night Mode*/
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -87,7 +89,8 @@ public class SignInActivity extends AppCompatActivity {
 
         // # Google Sign In Button
         google_btn = binding.btnGoogleLogin;
-        google_btn.setOnClickListener(new View.OnClickListener() {
+        google_btn.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v)
             {
@@ -100,7 +103,8 @@ public class SignInActivity extends AppCompatActivity {
 
         /* To Go To Sign Up Page Functionality */
         to_signup = binding.linkToSignup;
-        to_signup.setOnClickListener(new View.OnClickListener() {
+        to_signup.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v)
             {
@@ -119,11 +123,13 @@ public class SignInActivity extends AppCompatActivity {
         sign_in_btn.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 NormalSignIn(user_mail.getText().toString(), user_passwd.getText().toString());
             }
         });
-    }
+
+    } // end of onCreate
 
 
 
@@ -231,4 +237,4 @@ public class SignInActivity extends AppCompatActivity {
     /*** End of Extra Supporting Functions ***/
 
 
-}
+} // end of class

@@ -19,13 +19,15 @@ import com.example.wagba.databinding.ActivityMainBinding;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+{
 
     /*View Binding Variable*/
     private ActivityMainBinding binding;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
 
         /*Disabling Night Mode*/
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -40,6 +42,6 @@ public class MainActivity extends AppCompatActivity {
         /*Main Code Starts Here*/
 
 
-    }
+    } // end of onCreate
 
-}
+} // end of class

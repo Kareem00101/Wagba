@@ -26,5 +26,10 @@
     <style name="Theme.Wagba.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.Wagba.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="SplashScreen" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/primary_orange</item>
+        <item name="android:windowBackground">@drawable/activity_splash</item>
+    </style>
+
 
 </resources>

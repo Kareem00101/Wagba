@@ -20,7 +20,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity
+{
 
 
     /* Used Variables */
@@ -47,7 +48,8 @@ public class SignUpActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
 
         /*Binding View*/
@@ -90,7 +92,8 @@ public class SignUpActivity extends AppCompatActivity {
 
 
         /** End of Registration Functionality **/
-    }
+
+    } // end of onCreate
 
 
 
@@ -161,4 +164,5 @@ public class SignUpActivity extends AppCompatActivity {
 
 
     /** End of Extra Supporting Functions **/
-}
+
+} // end of class
