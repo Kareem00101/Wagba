@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignInActivity"
+    android:background="@drawable/orangewave"
 
-    android:background="@drawable/orangewave">
+    tools:context=".SignInActivity">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_google_login"
@@ -24,7 +24,7 @@
         app:layout_constraintStart_toStartOf="@+id/title_login_page"
 
         tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck"
-        tools:viewBindingType="androidx.appcompat.widget.AppCompatButton"/>
+        tools:viewBindingType="androidx.appcompat.widget.AppCompatButton" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_sign_in"
@@ -73,13 +73,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:autofillHints=""
+
+        android:drawableStart="@drawable/mail_icon"
+        android:drawablePadding="5dp"
+
         android:ems="10"
         android:hint="@string/hint_mail"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:textCursorDrawable="@drawable/orange_cursor"
-        app:backgroundTint="@color/light3_orange"
 
+        app:backgroundTint="@color/light3_orange"
         app:layout_constraintBottom_toTopOf="@+id/login_passwd_input"
         app:layout_constraintEnd_toEndOf="@+id/login_passwd_input"
         app:layout_constraintStart_toStartOf="@+id/title_login_page"
@@ -92,13 +96,17 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="60dp"
         android:autofillHints=""
+
+        android:drawableStart="@drawable/password_icon"
+        android:drawablePadding="5dp"
+
         android:ems="10"
         android:hint="@string/hint_passwd"
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:textCursorDrawable="@drawable/orange_cursor"
-        app:backgroundTint="@color/light3_orange"
 
+        app:backgroundTint="@color/light3_orange"
         app:layout_constraintBottom_toTopOf="@+id/btn_sign_in"
         app:layout_constraintEnd_toEndOf="@+id/btn_sign_in"
         app:layout_constraintStart_toStartOf="@+id/title_login_page" />

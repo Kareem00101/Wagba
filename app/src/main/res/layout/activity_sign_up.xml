@@ -30,6 +30,11 @@
         android:minHeight="48dp"
 
         android:textCursorDrawable="@drawable/orange_cursor"
+
+        android:drawableStart="@drawable/password_icon"
+        android:drawablePadding="5dp"
+
+
         app:backgroundTint="@color/light3_orange"
         app:layout_constraintBottom_toTopOf="@+id/btn_sign_up"
         app:layout_constraintEnd_toEndOf="@+id/btn_sign_up"
@@ -89,6 +94,10 @@
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:textCursorDrawable="@drawable/orange_cursor"
+
+        android:drawableStart="@drawable/mail_icon"
+        android:drawablePadding="5dp"
+
         app:backgroundTint="@color/light3_orange"
         app:layout_constraintEnd_toEndOf="@+id/signup_passwd_input"
         app:layout_constraintStart_toStartOf="@+id/title_signup_page"
@@ -106,6 +115,9 @@
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:textCursorDrawable="@drawable/orange_cursor"
+
+        android:drawableStart="@drawable/password_icon"
+        android:drawablePadding="5dp"
 
         app:backgroundTint="@color/light3_orange"
         app:layout_constraintBottom_toTopOf="@+id/signup_cpasswd_input"
