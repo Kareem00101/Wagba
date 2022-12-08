@@ -19,4 +19,8 @@
     <color name="light7_orange">#ffe1b2</color>
     <color name="light8_orange">#ffe8c5</color>
 
+    <color name="red_orange">#FF4433</color>
+    <color name="neon_orange">#FF5F1F</color>
+    <color name="neon_orange2">#FF7940</color>
+
 </resources>

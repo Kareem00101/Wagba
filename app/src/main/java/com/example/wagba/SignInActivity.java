@@ -108,6 +108,7 @@ public class SignInActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                finish();
                 Intent intent = new Intent(SignInActivity.this,SignUpActivity.class);
                 startActivity(intent);
             }
@@ -208,7 +209,7 @@ public class SignInActivity extends AppCompatActivity
                             if (task.isSuccessful())
                             {
                                 Toast.makeText(getApplicationContext(), "successful login", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                navigateToMainActivity();
                             }
                             else
                             {
@@ -229,7 +230,7 @@ public class SignInActivity extends AppCompatActivity
     void navigateToMainActivity()
     {
         finish();
-        Intent intent = new Intent(SignInActivity.this,MainActivity.class);
+        Intent intent = new Intent(SignInActivity.this, MainActivity.class);
         startActivity(intent);
     }
 

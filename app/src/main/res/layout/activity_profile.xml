@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/square_background"
+    tools:context=".ProfileActivity">
+
+    <ImageView
+        android:id="@+id/profile_picture"
+        android:layout_width="177dp"
+        android:layout_height="126dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profile_photo"
+        android:contentDescription="@string/todo" />
+
+    <TextView
+        android:id="@+id/profile_mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="@string/hint_mail"
+        android:textColor="@color/black"
+        android:textColorHint="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_picture"
+        tools:ignore="TextContrastCheck" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_back_to_home"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="60dp"
+
+        android:background="@drawable/back_home_button"
+        android:drawableStart="@drawable/back_button_icon"
+        android:letterSpacing="0.2"
+        android:paddingLeft="10dp"
+
+        android:paddingRight="10dp"
+        android:text="@string/back_to_home"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_mail"
+        tools:ignore="Deprecated,DuplicateSpeakableTextCheck,MissingConstraints,TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/account_info_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/account_info"
+        android:textColor="#000000"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_back_to_home" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="50dp"
+        android:orientation="vertical"
+        android:padding="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/account_info_text">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/profile_username_et"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:autofillHints=""
+            android:drawableStart="@drawable/profile_icon0"
+            android:drawablePadding="5dp"
+            android:ems="10"
+
+            android:hint="@string/prof_username_et"
+
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:textCursorDrawable="@drawable/orange_cursor"
+            app:backgroundTint="@color/light3_orange"
+            tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/profile_phone_number_et"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:autofillHints=""
+            android:drawableStart="@drawable/password_icon"
+            android:drawablePadding="5dp"
+            android:ems="10"
+
+            android:hint="@string/prof_phone_num_et"
+            android:inputType="phone"
+            android:minHeight="48dp"
+            android:textCursorDrawable="@drawable/orange_cursor"
+            app:backgroundTint="@color/light3_orange"
+            tools:ignore="TextContrastCheck" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/profile_mail_et"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:autofillHints=""
+            android:drawableStart="@drawable/mail_icon"
+            android:drawablePadding="5dp"
+            android:ems="10"
+
+            android:hint="@string/prof_mail_et"
+
+            android:inputType="textWebEmailAddress|textEmailAddress"
+            android:minHeight="48dp"
+            android:textCursorDrawable="@drawable/orange_cursor"
+            app:backgroundTint="@color/light3_orange"
+            tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

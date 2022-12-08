@@ -84,7 +84,7 @@ public class SignUpActivity extends AppCompatActivity
             public void onClick(View v) {
                 boolean mail_check = checkMail(user_mail.getText().toString());
                 boolean password_check = checkMatchingPasswords(user_passwd.getText().toString(), user_cpasswd.getText().toString());
-                if(password_check == true)
+                if(password_check == true && mail_check == true)
                 {
                     createUser(user_mail.getText().toString(), user_passwd.getText().toString());
                 }
