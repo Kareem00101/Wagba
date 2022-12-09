@@ -49,4 +49,18 @@
     <string name="cart_btn">Cart</string>
     <string name="logout_btn">Logout</string>
     <!-- End of Main Activity Strings -->
+
+    <!-- Orders Activity Strings -->
+    <string name="orders_title_txt">My Orders</string>
+    <!-- End of Orders Activity Strings -->
+
+    <!-- Main Cart Strings -->
+    <string name="cart_title_txt">My Cart</string>
+    <string name="cart_total_price_txt">Total Price\n$650.00</string>
+    <string name="cart_pay_txt">Order Now</string>
+    <string name="cart_delivery_gate_txt">Delivery Gate</string>
+
+    <string name="cart_radio_btn_gate3">Gate 3</string>
+    <string name="cart_radio_btn_gate4">Gate 4</string>
+    <!-- End of Cart Activity Strings -->
 </resources>

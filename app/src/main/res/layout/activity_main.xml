@@ -4,24 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light2_orange"
+    android:background="@color/light7_orange"
     tools:context=".MainActivity">
 
 
     <LinearLayout
         android:id="@+id/main_linear_navbar"
         android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_height="90dp"
 
         android:background="@color/white"
+
         android:gravity="bottom"
         android:orientation="horizontal"
-
         android:paddingLeft="5dp"
         android:paddingTop="5dp"
         android:paddingRight="5dp"
         android:paddingBottom="5dp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -30,18 +29,19 @@
             android:id="@+id/nav_cart_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+
+
             android:layout_margin="5dp"
+
             android:layout_weight="2"
             android:background="?android:attr/selectableItemBackground"
+            android:gravity="bottom|center"
             android:text="@string/cart_btn"
             android:textAllCaps="false"
             android:textColor="@color/primary_orange"
             android:textSize="16sp"
-
-
             android:textStyle="bold"
             app:drawableTopCompat="@drawable/cart_white_full_icon0"
-
             tools:ignore="TextContrastCheck" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -51,14 +51,15 @@
             android:layout_margin="5dp"
             android:layout_weight="2"
             android:background="?android:attr/selectableItemBackground"
+            android:gravity="bottom|center"
             android:text="@string/orders_btn"
             android:textAllCaps="false"
             android:textColor="@color/primary_orange"
+
             android:textSize="16sp"
-
             android:textStyle="bold"
-            app:drawableTopCompat="@drawable/orders_icon"
 
+            app:drawableTopCompat="@drawable/orders_icon"
             tools:ignore="TextContrastCheck" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -68,14 +69,15 @@
             android:layout_margin="5dp"
             android:layout_weight="2"
             android:background="?android:attr/selectableItemBackground"
+            android:gravity="bottom|center"
             android:text="@string/profile_btn"
             android:textAllCaps="false"
+
             android:textColor="@color/primary_orange"
             android:textSize="16sp"
 
             android:textStyle="bold"
             app:drawableTopCompat="@drawable/profile_icon0"
-
             tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -86,25 +88,27 @@
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:drawableTop="@drawable/logout_icon"
+
+            android:gravity="bottom|center"
             android:text="@string/logout_btn"
+
             android:textAllCaps="false"
             android:textColor="@color/primary_orange"
-
             android:textSize="14sp"
             android:textStyle="bold"
-
             tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
 
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/main_recycler_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/recyclerview_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

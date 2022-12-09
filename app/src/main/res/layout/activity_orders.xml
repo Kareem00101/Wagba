@@ -4,6 +4,121 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OrdersActivity">
+    tools:context=".OrdersActivity"
+    android:background="@color/light7_orange">
+
+    <LinearLayout
+        android:id="@+id/orders_navbar"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+
+        android:background="@color/white"
+
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp"
+        android:paddingTop="5dp"
+
+        android:paddingRight="5dp"
+        android:paddingBottom="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/orders_back_btn"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center|start"
+            android:layout_margin="5dp"
+            android:layout_weight="0.3"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableStart="@drawable/back_icon"
+
+            android:gravity="start"
+
+            android:textAllCaps="false"
+            android:textColor="@color/primary_orange"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/orders_filler_txt_l0"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            android:layout_weight="0.1"
+            android:background="?android:attr/selectableItemBackground"
+
+            android:clickable="false"
+            android:textAllCaps="false"
+            android:textColor="@color/primary_orange"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/orders_title_txt"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="@string/orders_title_txt"
+            android:textColor="@color/primary_orange"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:drawableRightCompat="@drawable/fork_spoon_orange_icon"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/orders_filler_txt_r0"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            android:layout_weight="0.1"
+            android:background="?android:attr/selectableItemBackground"
+
+            android:clickable="false"
+            android:textAllCaps="false"
+            android:textColor="@color/primary_orange"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/orders_filler_txt_r1"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            android:layout_weight="0.3"
+            android:background="?android:attr/selectableItemBackground"
+
+            android:clickable="false"
+            android:textAllCaps="false"
+            android:textColor="@color/primary_orange"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/orders_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/recyclerview_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/orders_navbar" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

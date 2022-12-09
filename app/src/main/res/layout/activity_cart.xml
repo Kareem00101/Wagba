@@ -1,9 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".CartActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/cart_top_navbar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp"
+        android:paddingTop="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="5dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cart_back_btn"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center|start"
+            android:layout_margin="5dp"
+            android:layout_weight="0.3"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableStart="@drawable/back_icon"
+
+            android:gravity="start"
+
+            android:textAllCaps="false"
+            android:textColor="@color/primary_orange"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/cart_filler_txt_l0"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            android:layout_weight="0.1"
+            android:background="?android:attr/selectableItemBackground"
+
+            android:clickable="false"
+            android:textAllCaps="false"
+            android:textColor="@color/primary_orange"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/cart_title_txt"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="@string/cart_title_txt"
+            android:textColor="@color/primary_orange"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:drawableRightCompat="@drawable/cart_black_empty_icon0"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/cart_filler_txt_r0"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            android:layout_weight="0.1"
+            android:background="?android:attr/selectableItemBackground"
+
+            android:clickable="false"
+            android:textAllCaps="false"
+            android:textColor="@color/primary_orange"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/cart_filler_txt_r1"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            android:layout_weight="0.3"
+            android:background="?android:attr/selectableItemBackground"
+
+            android:clickable="false"
+            android:textAllCaps="false"
+            android:textColor="@color/primary_orange"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cart_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8" >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.25">
+
+        <TextView
+            android:id="@+id/cart_delivery_gate_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/cart_delivery_gate_txt"
+            android:textColor="@color/primary_orange"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextContrastCheck" />
+
+        <RadioGroup
+            android:id="@+id/cart_delivery_radio_group"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cart_delivery_gate_txt"
+
+            android:checkedButton="@id/radio_gate_3">
+
+            <RadioButton
+                android:id="@+id/radio_gate_3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:buttonTint="@color/light1_orange"
+                android:text="@string/cart_radio_btn_gate3"
+                android:textColor="@color/neon_orange2"
+                android:textSize="16sp"
+                android:textStyle="bold"
+
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+            <RadioButton
+                android:id="@+id/radio_gate_4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:buttonTint="@color/light1_orange"
+                android:text="@string/cart_radio_btn_gate4"
+                android:textColor="@color/neon_orange2"
+                android:textSize="16sp"
+                android:textStyle="bold"
+
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+        </RadioGroup>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/cart_bot_navbar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.25"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+        <TextView
+            android:id="@+id/cart_price_txt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="@string/cart_total_price_txt"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cart_pay_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/order_button"
+            android:text="@string/cart_pay_txt"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck" />
+
+    </LinearLayout>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

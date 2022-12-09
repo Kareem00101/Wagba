@@ -58,12 +58,15 @@
 
     <TextView
         android:id="@+id/link_to_signup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
         android:layout_marginStart="5dp"
+        android:layout_marginBottom="25dp"
+        android:gravity="center"
         android:text="@string/prompt_sign_up"
         android:textColor="@color/primary_orange"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/login_bottom_text"
         app:layout_constraintTop_toTopOf="@+id/login_bottom_text"
         tools:ignore="TextContrastCheck" />
