@@ -54,9 +54,9 @@ public class ProfileActivity extends AppCompatActivity
     // # Navigate to Main Intent
     void navigateToMainActivity()
     {
-        finish();
         Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
     /*** End of Supporting Functionalities ***/

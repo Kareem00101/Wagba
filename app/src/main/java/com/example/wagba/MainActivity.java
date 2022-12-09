@@ -110,8 +110,8 @@ public class MainActivity extends AppCompatActivity
                     public void onComplete(Task<Void> task)
                     {
                         // user is now signed out
-                        finish();
                         startActivity(new Intent(MainActivity.this, SignInActivity.class));
+                        finish();
                     }
                 });
 

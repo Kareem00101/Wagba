@@ -53,9 +53,10 @@ public class OrdersActivity extends AppCompatActivity
 
     void navigateToMainActivity()
     {
-        finish();
+
         Intent intent = new Intent(OrdersActivity.this,MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
     /*** End of Supporting Functionalities ***/

@@ -15,7 +15,7 @@ public class CartActivity extends AppCompatActivity {
     /*View Binding Variable*/
     private ActivityCartBinding binding;
     Button back_btn;
-
+    Button order_now;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,11 +24,11 @@ public class CartActivity extends AppCompatActivity {
         binding = ActivityCartBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
         /*** Navigation Bar Code ***/
 
         // # Required Buttons
         back_btn = binding.cartBackBtn;
+        order_now = binding.cartPayBtn;
 
         // # On Click
         back_btn.setOnClickListener(new View.OnClickListener()
@@ -40,7 +40,24 @@ public class CartActivity extends AppCompatActivity {
             }
         });
 
+        order_now.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                navigateToTrackOrderActivity();
+            }
+        });
+
         /*** Navigation Bar Code ***/
+
+
+
+        /*** Calculating Total Price ***/
+
+
+
+        /*** End of Calculating Total Price ***/
 
 
 
@@ -61,10 +78,18 @@ public class CartActivity extends AppCompatActivity {
 
     void navigateToMainActivity()
     {
-        finish();
         Intent intent = new Intent(CartActivity.this,MainActivity.class);
         startActivity(intent);
+        finish();
     }
+
+    void navigateToTrackOrderActivity()
+    {
+        Intent intent = new Intent(CartActivity.this,TrackOrderActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 
     /*** End of Supporting Functionalities ***/
 

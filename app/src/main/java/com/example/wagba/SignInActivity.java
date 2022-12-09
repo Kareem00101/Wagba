@@ -108,9 +108,9 @@ public class SignInActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                finish();
                 Intent intent = new Intent(SignInActivity.this,SignUpActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -229,9 +229,9 @@ public class SignInActivity extends AppCompatActivity
     // # Navigate to Main Intent
     void navigateToMainActivity()
     {
-        finish();
         Intent intent = new Intent(SignInActivity.this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
 

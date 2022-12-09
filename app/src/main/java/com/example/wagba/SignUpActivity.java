@@ -174,9 +174,9 @@ public class SignUpActivity extends AppCompatActivity
 
     void navigateToSignInActivity()
     {
-        finish();
         Intent intent = new Intent(SignUpActivity.this,SignInActivity.class);
         startActivity(intent);
+        finish();
     }
 
 
