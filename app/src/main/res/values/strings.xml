@@ -34,7 +34,7 @@
 
 
     <!-- Profile Strings -->
-    <string name="back_to_home">Back to \n Home</string>
+    <string name="back_to_home">Back to Home</string>
     <string name="account_info">Account Info</string>
 
     <string name="prof_username_et">customer0</string>

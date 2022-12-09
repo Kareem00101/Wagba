@@ -24,38 +24,39 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="60dp"
         android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/hint_passwd"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-
-        android:textCursorDrawable="@drawable/orange_cursor"
-
         android:drawableStart="@drawable/password_icon"
         android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="@string/hint_passwd"
+
+        android:inputType="textPassword"
+
+        android:minHeight="48dp"
+        android:textCursorDrawable="@drawable/orange_cursor"
 
 
         app:backgroundTint="@color/light3_orange"
         app:layout_constraintBottom_toTopOf="@+id/btn_sign_up"
         app:layout_constraintEnd_toEndOf="@+id/btn_sign_up"
-        app:layout_constraintStart_toStartOf="@+id/title_signup_page"
+        app:layout_constraintStart_toStartOf="@+id/btn_sign_up"
         tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_sign_up"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="70dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="45dp"
         android:layout_marginBottom="80dp"
+
         android:background="@drawable/auth_button"
+
         android:text="@string/button_sign_up"
-
         android:textColor="#FFFFFF"
-
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/signup_bottom_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/title_signup_page"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
     <TextView
@@ -89,19 +90,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:autofillHints=""
+        android:drawableStart="@drawable/mail_icon"
+        android:drawablePadding="5dp"
         android:ems="10"
         android:hint="@string/hint_mail"
         android:inputType="textEmailAddress"
+
         android:minHeight="48dp"
         android:textCursorDrawable="@drawable/orange_cursor"
 
-        android:drawableStart="@drawable/mail_icon"
-        android:drawablePadding="5dp"
-
         app:backgroundTint="@color/light3_orange"
         app:layout_constraintEnd_toEndOf="@+id/signup_passwd_input"
-        app:layout_constraintStart_toStartOf="@+id/title_signup_page"
 
+        app:layout_constraintStart_toStartOf="@+id/signup_passwd_input"
         app:layout_constraintTop_toBottomOf="@+id/title_signup_page"
         tools:ignore="TextContrastCheck" />
 
@@ -110,19 +111,19 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:autofillHints=""
+        android:drawableStart="@drawable/password_icon"
+        android:drawablePadding="5dp"
         android:ems="10"
         android:hint="@string/hint_passwd"
         android:inputType="textPassword"
+
         android:minHeight="48dp"
         android:textCursorDrawable="@drawable/orange_cursor"
-
-        android:drawableStart="@drawable/password_icon"
-        android:drawablePadding="5dp"
 
         app:backgroundTint="@color/light3_orange"
         app:layout_constraintBottom_toTopOf="@+id/signup_cpasswd_input"
         app:layout_constraintEnd_toEndOf="@+id/signup_cpasswd_input"
-        app:layout_constraintStart_toStartOf="@+id/title_signup_page"
+        app:layout_constraintStart_toStartOf="@+id/signup_cpasswd_input"
         app:layout_constraintTop_toBottomOf="@+id/signup_mail_input"
         tools:ignore="TextContrastCheck" />
 
@@ -130,7 +131,7 @@
         android:id="@+id/title_signup_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="120dp"
         android:text="@string/title_sign_up"
         android:textColor="@color/primary_orange"

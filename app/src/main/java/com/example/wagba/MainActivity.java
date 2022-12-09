@@ -87,13 +87,13 @@ public class MainActivity extends AppCompatActivity
 
     void navigateToCartActivity()
     {
-        Intent intent = new Intent(MainActivity.this,ProfileActivity.class);
+        Intent intent = new Intent(MainActivity.this,CartActivity.class);
         startActivity(intent);
     }
 
     void navigateToOrdersActivity()
     {
-        Intent intent = new Intent(MainActivity.this,ProfileActivity.class);
+        Intent intent = new Intent(MainActivity.this,OrdersActivity.class);
         startActivity(intent);
     }
 

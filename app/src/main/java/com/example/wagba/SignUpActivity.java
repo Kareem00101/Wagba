@@ -62,9 +62,13 @@ public class SignUpActivity extends AppCompatActivity
 
         /* To Go To Sign In Page Functionality */
         to_signin = binding.linkToLogin;
-        to_signin.setOnClickListener(new View.OnClickListener() {
+        to_signin.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
+
+                finish();
                 Intent intent = new Intent(SignUpActivity.this,SignInActivity.class);
                 startActivity(intent);
             }
