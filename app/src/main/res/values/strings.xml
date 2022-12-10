@@ -74,5 +74,10 @@
     <string name="track_order_details_title_txt">Order Details</string>
     <string name="track_delivery_guy_photo_content">Delivery Guy Profile Photo</string>
 
+    <string name="track_order_delivery_guy_name">Wagba Dude</string>
+    <string name="track_order_delivery_guy_side_txt">Wagba delivery is there for you</string>
+
+    <string name="track_call_btn_photo_content">Call Button Photo</string>
+
     <!-- End of Track Order Activity Strings -->
 </resources>
