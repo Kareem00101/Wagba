@@ -172,7 +172,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
-        android:id="@+id/cart_bot_navbar"
+        android:id="@+id/track_order_bot_navbar"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1.25"

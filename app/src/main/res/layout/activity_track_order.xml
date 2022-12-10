@@ -4,6 +4,214 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".TrackOrderActivity">
+
+    <LinearLayout
+        android:id="@+id/track_order_top_navbar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp"
+        android:paddingTop="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="5dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/track_order_back_btn"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center|start"
+            android:layout_margin="5dp"
+            android:layout_weight="0.3"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableStart="@drawable/back_icon"
+
+            android:gravity="start"
+
+            android:textAllCaps="false"
+            android:textColor="@color/primary_orange"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/cart_filler_txt_l0"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            android:layout_weight="0.1"
+            android:background="?android:attr/selectableItemBackground"
+
+            android:clickable="false"
+            android:textAllCaps="false"
+            android:textColor="@color/primary_orange"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/track_order_title_txt"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="@string/track_order_title_txt"
+            android:textColor="@color/primary_orange"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:drawableRightCompat="@drawable/motorcycle_orange_red_icon"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/cart_filler_txt_r0"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            android:layout_weight="0.1"
+            android:background="?android:attr/selectableItemBackground"
+
+            android:clickable="false"
+            android:textAllCaps="false"
+            android:textColor="@color/primary_orange"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/cart_filler_txt_r1"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            android:layout_weight="0.3"
+            android:background="?android:attr/selectableItemBackground"
+
+            android:clickable="false"
+            android:textAllCaps="false"
+            android:textColor="@color/primary_orange"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/track_order_cart_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <ImageView
+        android:id="@+id/track_location_photo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:contentDescription="@string/track_order_photo_content"
+        app:srcCompat="@drawable/track_location_photo" />
+
+    <LinearLayout
+        android:id="@+id/track_order_bot_navbar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/track_order_order_details_title_txt"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="@string/track_order_details_title_txt"
+            android:textColor="@color/primary_orange"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/track_order_total_price_txt"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:padding="5dp"
+            android:text="@string/track_order_total_price_txt"
+            android:textColor="@color/primary_orange"
+            android:textSize="20sp"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/track_order_delivery_gate_txt"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:padding="5dp"
+            android:text="@string/track_order_delivery_gate_txt"
+            android:textColor="@color/primary_orange"
+            android:textSize="20sp"
+            tools:ignore="TextContrastCheck" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/track_order_delivery_guy_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="5dp"
+            android:layout_weight="4"
+
+            android:background="@drawable/track_order_delivery_background">
+
+            <ImageView
+                android:id="@+id/track_order_delivery_guy_photo"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="10dp"
+                android:contentDescription="@string/track_delivery_guy_photo_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/delivery_guy_photo0"
+                tools:ignore="ImageContrastCheck" />
+
+            <androidx.constraintlayout.utils.widget.ImageFilterButton
+                android:id="@+id/imageFilterButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/phone_call_icon" />
+
+            <TextView
+                android:id="@+id/track_order_delivery_guy_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                app:layout_constraintStart_toEndOf="@+id/track_order_delivery_guy_photo"
+                app:layout_constraintTop_toTopOf="@+id/track_order_delivery_guy_photo" />
+
+            <TextView
+                android:id="@+id/track_order_delivery_guy_next_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                app:layout_constraintBottom_toBottomOf="@+id/track_order_delivery_guy_photo"
+                app:layout_constraintStart_toEndOf="@+id/track_order_delivery_guy_photo" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

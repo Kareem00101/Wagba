@@ -63,4 +63,16 @@
     <string name="cart_radio_btn_gate3">Gate 3</string>
     <string name="cart_radio_btn_gate4">Gate 4</string>
     <!-- End of Cart Activity Strings -->
+
+    <!-- Track Order Activity Strings -->
+    <string name="track_order_title_txt">Track Order</string>
+    <string name="track_order_total_price_txt">Order Total Price is <b>$650.00</b></string>
+    <string name="track_order_delivery_gate_txt">Order Delivering to Gate <b>3</b></string>
+    <string name="track_order_delivery_gate">Gate 3</string>
+    <string name="track_order_photo_content">track order image</string>
+
+    <string name="track_order_details_title_txt">Order Details</string>
+    <string name="track_delivery_guy_photo_content">Delivery Guy Profile Photo</string>
+
+    <!-- End of Track Order Activity Strings -->
 </resources>
