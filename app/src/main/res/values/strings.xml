@@ -41,6 +41,8 @@
     <string name="prof_phone_num_et">+2012000000</string>
     <string name="prof_mail_et">studentID@eng.asu.edu.eg</string>
     <string name="todo">TODO</string>
+
+    <string name="prof_update_btn">UPDATE</string>
     <!-- End of Profile Strings -->
 
     <!-- Main Activity Strings -->

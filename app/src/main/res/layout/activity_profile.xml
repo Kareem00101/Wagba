@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/profile_picture"
-        android:layout_width="170dp"
-        android:layout_height="125dp"
+        android:layout_width="160dp"
+        android:layout_height="120dp"
         android:layout_marginTop="30dp"
         android:contentDescription="@string/todo"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,24 +36,22 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_back_to_home"
-        android:layout_width="0dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="60dp"
 
+        android:layout_marginTop="50dp"
         android:background="@drawable/back_home_button"
+
         android:drawableStart="@drawable/back_button_icon"
+        android:elevation="3dp"
         android:letterSpacing="0.2"
         android:paddingLeft="10dp"
         android:paddingRight="15dp"
-
         android:text="@string/back_to_home"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_mail"
         tools:ignore="Deprecated,DuplicateSpeakableTextCheck,MissingConstraints,TextContrastCheck" />
@@ -63,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:text="@string/account_info"
         android:textColor="#000000"
         android:textSize="28sp"
@@ -75,10 +73,17 @@
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="10dp"
+        android:background="#FFFFFE"
+        android:elevation="1dp"
         android:orientation="vertical"
-        android:padding="30dp"
+        android:paddingLeft="30dp"
+        android:paddingTop="10dp"
+        android:paddingRight="30dp"
+
+        android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,7 +92,7 @@
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/profile_username_et"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:autofillHints=""
@@ -106,7 +111,7 @@
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/profile_phone_number_et"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:autofillHints=""
@@ -124,7 +129,7 @@
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/profile_mail_et"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:autofillHints=""
@@ -139,6 +144,19 @@
             android:textCursorDrawable="@drawable/orange_cursor"
             app:backgroundTint="@color/light3_orange"
             tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/profile_update_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="right"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/auth_button"
+            android:text="@string/prof_update_btn"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck" />
 
     </LinearLayout>
 
