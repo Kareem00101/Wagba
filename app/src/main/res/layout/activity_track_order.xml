@@ -111,13 +111,28 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <ImageView
+    <com.shuhart.stepview.StepView
         android:id="@+id/track_location_photo"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
-        android:contentDescription="@string/track_order_photo_content"
-        app:srcCompat="@drawable/track_location_photo" />
+        android:padding="16dp"
+        app:sv_selectedCircleColor="@color/neon_orange"
+        app:sv_selectedTextColor="@color/white"
+        app:sv_stepLineWidth="1dp"
+        app:sv_stepPadding="4dp"
+        app:sv_nextTextColor="@color/primary_orange"
+        app:sv_nextStepLineColor="@color/neon_orange2"
+        app:sv_doneCircleColor="@color/red_orange"
+        app:sv_doneStepLineColor="@color/neon_orange2"
+        app:sv_doneCircleRadius="12dp"
+        app:sv_selectedCircleRadius="12dp"
+        app:sv_selectedStepNumberColor="@color/primary_orange"
+        app:sv_stepViewStyle="@style/StepView"
+        app:sv_doneStepMarkColor="@color/primary_orange"
+        app:sv_stepNumberTextSize="12sp"
+        app:sv_animationType="Line"
+        />
 
     <LinearLayout
         android:id="@+id/track_order_bot_navbar"

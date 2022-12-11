@@ -87,4 +87,7 @@ dependencies {
 
     // FirebaseUI for Cloud Storage
     implementation 'com.firebaseui:firebase-ui-storage:8.0.2'
+
+    // For step view
+    implementation 'com.github.shuhart:stepview:1.5.1'
 }
