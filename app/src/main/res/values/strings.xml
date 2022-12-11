@@ -11,6 +11,7 @@
     <string name="hello_second_fragment">Hello second fragment</string>
 
     <!-- Authentication Strings -->
+
     <string name="title_activity_authentication">AuthenticationActivity</string>
     <string name="label_email">Email</string>
     <string name="label_password">Password</string>
@@ -30,10 +31,12 @@
     <string name="login_failed">"Login failed"</string>
     <string name="hint_passwd">password</string>
     <string name="hint_mail">studentID@eng.asu.edu.eg</string>
+
     <!--End of Authentication Strings-->
 
 
     <!-- Profile Strings -->
+
     <string name="back_to_home">Back to Home</string>
     <string name="account_info">Account Info</string>
 
@@ -43,17 +46,22 @@
     <string name="todo">TODO</string>
 
     <string name="prof_update_btn">UPDATE</string>
+
     <!-- End of Profile Strings -->
 
     <!-- Main Activity Strings -->
+
     <string name="profile_btn">Profile</string>
     <string name="orders_btn">Orders</string>
     <string name="cart_btn">Cart</string>
     <string name="logout_btn">Logout</string>
+
     <!-- End of Main Activity Strings -->
 
     <!-- Orders Activity Strings -->
+
     <string name="orders_title_txt">My Orders</string>
+
     <!-- End of Orders Activity Strings -->
 
     <!-- Main Cart Strings -->
@@ -64,9 +72,11 @@
 
     <string name="cart_radio_btn_gate3">Gate 3</string>
     <string name="cart_radio_btn_gate4">Gate 4</string>
+
     <!-- End of Cart Activity Strings -->
 
     <!-- Track Order Activity Strings -->
+
     <string name="track_order_title_txt">Track Order</string>
     <string name="track_order_total_price_txt">Order total price is <b>$650.00</b></string>
     <string name="track_order_delivery_gate_txt">Order delivering to gate <b>3</b></string>
@@ -82,4 +92,11 @@
     <string name="track_call_btn_photo_content">Call Button Photo</string>
 
     <!-- End of Track Order Activity Strings -->
+
+    <!-- Restaurant Activity Strings -->
+    <string name="restaurant_activity_title">Restaurant\nMenu</string>
+
+
+
+    <!-- End of Restaurant Activity Strings -->
 </resources>

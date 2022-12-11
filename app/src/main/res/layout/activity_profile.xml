@@ -39,7 +39,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/back_home_button"
 
         android:drawableStart="@drawable/back_button_icon"
@@ -60,13 +60,12 @@
         android:id="@+id/account_info_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="@string/account_info"
-        android:textColor="#000000"
+        android:textColor="@color/light1_orange"
         android:textSize="28sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/btn_back_to_home" />
 
     <LinearLayout
@@ -82,12 +81,12 @@
         android:paddingLeft="30dp"
         android:paddingTop="10dp"
         android:paddingRight="30dp"
-
         android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/account_info_text">
+        app:layout_constraintTop_toBottomOf="@+id/account_info_text"
+        >
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/profile_username_et"
@@ -150,7 +149,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_gravity="right"
-            android:layout_margin="5dp"
+            android:layout_margin="10dp"
             android:layout_weight="1"
             android:background="@drawable/auth_button"
             android:text="@string/prof_update_btn"

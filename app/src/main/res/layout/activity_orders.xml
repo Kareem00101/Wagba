@@ -4,26 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OrdersActivity"
-    android:background="@color/light8_orange">
+    android:background="@color/pearl"
+    android:padding="5dp"
+    tools:context=".OrdersActivity">
 
     <LinearLayout
         android:id="@+id/orders_navbar"
         android:layout_width="0dp"
         android:layout_height="80dp"
-
-        android:background="@color/white"
-
+        android:layout_margin="5dp"
+        android:elevation="5dp"
         android:gravity="center"
         android:orientation="horizontal"
+
         android:paddingLeft="5dp"
         android:paddingTop="5dp"
-
         android:paddingRight="5dp"
         android:paddingBottom="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:background="@drawable/elevated_layout_background">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/orders_back_btn"
@@ -110,8 +112,9 @@
         android:id="@+id/orders_recycler_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="4dp"
+        android:layout_margin="5dp"
         android:background="@drawable/recyclerview_background"
+        android:elevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

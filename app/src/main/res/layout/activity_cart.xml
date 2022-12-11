@@ -4,21 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/pearl"
     android:orientation="vertical"
+
+    android:padding="5dp"
     tools:context=".CartActivity">
 
     <LinearLayout
         android:id="@+id/cart_top_navbar"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_margin="5dp"
         android:layout_weight="1"
-        android:background="@color/white"
+        android:elevation="5dp"
         android:gravity="center"
         android:orientation="horizontal"
         android:paddingLeft="5dp"
         android:paddingTop="5dp"
         android:paddingRight="5dp"
-        android:paddingBottom="5dp">
+        android:paddingBottom="5dp"
+
+        android:background="@drawable/elevated_layout_background">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/cart_back_btn"
@@ -105,14 +111,22 @@
         android:id="@+id/cart_recycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="8" >
+        android:layout_margin="5dp"
+        android:layout_weight="8"
+        android:background="@drawable/recyclerview_background"
+        android:elevation="5dp"
+        >
 
     </androidx.recyclerview.widget.RecyclerView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.25">
+        android:layout_margin="5dp"
+        android:layout_weight="1.25"
+        android:elevation="5dp"
+
+        android:background="@drawable/elevated_layout_background">
 
         <TextView
             android:id="@+id/cart_delivery_gate_txt"
@@ -131,15 +145,15 @@
             android:id="@+id/cart_delivery_radio_group"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:checkedButton="@id/radio_gate_3"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cart_delivery_gate_txt"
 
-            android:checkedButton="@id/radio_gate_3">
+            app:layout_constraintTop_toBottomOf="@+id/cart_delivery_gate_txt">
 
             <RadioButton
                 android:id="@+id/radio_gate_3"
@@ -175,11 +189,16 @@
         android:id="@+id/track_order_bot_navbar"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_margin="5dp"
         android:layout_weight="1.25"
+        android:elevation="5dp"
         android:gravity="center"
         android:orientation="horizontal"
+
         android:paddingLeft="15dp"
-        android:paddingRight="15dp">
+        android:paddingRight="15dp"
+
+        android:background="@drawable/elevated_layout_background">
 
         <TextView
             android:id="@+id/cart_price_txt"
