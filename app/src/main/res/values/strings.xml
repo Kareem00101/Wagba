@@ -66,8 +66,8 @@
 
     <!-- Track Order Activity Strings -->
     <string name="track_order_title_txt">Track Order</string>
-    <string name="track_order_total_price_txt">Order Total Price is <b>$650.00</b></string>
-    <string name="track_order_delivery_gate_txt">Order Delivering to Gate <b>3</b></string>
+    <string name="track_order_total_price_txt">Order total price is <b>$650.00</b></string>
+    <string name="track_order_delivery_gate_txt">Order delivering to gate <b>3</b></string>
     <string name="track_order_delivery_gate">Gate 3</string>
     <string name="track_order_photo_content">track order image</string>
 

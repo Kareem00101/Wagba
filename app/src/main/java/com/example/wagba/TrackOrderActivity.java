@@ -1,22 +1,26 @@
 package com.example.wagba;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.wagba.databinding.ActivityMainBinding;
 import com.example.wagba.databinding.ActivityTrackOrderBinding;
+import com.shuhart.stepview.StepView;
+
+import java.util.ArrayList;
 
 public class TrackOrderActivity extends AppCompatActivity
 {
 
 
     /*View Binding Variable*/
-    private ActivityTrackOrderBinding binding;
+    private com.example.wagba.databinding.ActivityTrackOrderBinding binding;
     Button back_btn;
+    StepView order_track_steps;
 
 
     @Override
@@ -45,9 +49,25 @@ public class TrackOrderActivity extends AppCompatActivity
         });
 
 
+        /*** End of Navigation Code ***/
 
-        /*** End of Navigation Code***/
 
+        /*** Handling Step View Code ***/
+
+
+        // # step view
+        order_track_steps = binding.trackLocationStepView;
+        order_track_steps.getState().steps(new ArrayList<String>() {{
+            add("Placed");
+            add("Confirmed");
+            add("Delivering");
+            add("Delivered");
+        }}).commit();
+
+        order_track_steps.go(1, true);
+
+
+        /*** End of Handling Step View Code ***/
 
 
 

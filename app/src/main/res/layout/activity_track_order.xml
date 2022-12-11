@@ -62,7 +62,7 @@
             android:drawablePadding="5dp"
             android:gravity="center"
             android:text="@string/track_order_title_txt"
-            android:textColor="@color/primary_orange"
+            android:textColor="@color/light2_orange"
             android:textSize="28sp"
             android:textStyle="bold"
             app:drawableRightCompat="@drawable/motorcycle_orange_red_icon"
@@ -111,28 +111,31 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
+
     <com.shuhart.stepview.StepView
-        android:id="@+id/track_location_photo"
+        android:id="@+id/track_location_step_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3"
-        android:padding="16dp"
-        app:sv_selectedCircleColor="@color/neon_orange"
-        app:sv_selectedTextColor="@color/white"
-        app:sv_stepLineWidth="1dp"
-        app:sv_stepPadding="4dp"
-        app:sv_nextTextColor="@color/primary_orange"
-        app:sv_nextStepLineColor="@color/neon_orange2"
-        app:sv_doneCircleColor="@color/red_orange"
-        app:sv_doneStepLineColor="@color/neon_orange2"
-        app:sv_doneCircleRadius="12dp"
-        app:sv_selectedCircleRadius="12dp"
-        app:sv_selectedStepNumberColor="@color/primary_orange"
-        app:sv_stepViewStyle="@style/StepView"
-        app:sv_doneStepMarkColor="@color/primary_orange"
-        app:sv_stepNumberTextSize="12sp"
+        android:layout_weight="2"
+        android:layout_margin="5dp"
+        android:padding="10dp"
         app:sv_animationType="Line"
-        />
+        app:sv_doneCircleColor="@color/red_orange"
+        app:sv_doneCircleRadius="18dp"
+        app:sv_doneStepLineColor="@color/light2_orange"
+        app:sv_doneStepMarkColor="@color/white"
+        app:sv_nextStepLineColor="@color/neon_orange2"
+        app:sv_nextTextColor="@color/light_gray"
+        app:sv_selectedCircleColor="@color/neon_orange"
+        app:sv_selectedCircleRadius="22dp"
+        app:sv_selectedStepNumberColor="@color/white"
+        app:sv_selectedTextColor="@color/red_orange"
+        app:sv_stepLineWidth="2.5dp"
+        app:sv_textSize="15sp"
+        app:sv_stepNumberTextSize="16sp"
+        app:sv_stepPadding="5dp"
+        app:sv_stepViewStyle="@style/StepView" />
+
 
     <LinearLayout
         android:id="@+id/track_order_bot_navbar"
@@ -150,8 +153,8 @@
             android:layout_weight="1"
             android:fontFamily="sans-serif-condensed-medium"
             android:text="@string/track_order_details_title_txt"
-            android:textColor="@color/primary_orange"
-            android:textSize="24sp"
+            android:textColor="@color/light2_orange"
+            android:textSize="22sp"
             android:textStyle="bold"
             tools:ignore="TextContrastCheck" />
 
@@ -163,8 +166,8 @@
             android:fontFamily="sans-serif-medium"
             android:padding="5dp"
             android:text="@string/track_order_total_price_txt"
-            android:textColor="@color/primary_orange"
-            android:textSize="20sp"
+            android:textColor="@color/light_gray"
+            android:textSize="16sp"
             tools:ignore="TextContrastCheck" />
 
         <TextView
@@ -175,8 +178,8 @@
             android:fontFamily="sans-serif-medium"
             android:padding="5dp"
             android:text="@string/track_order_delivery_gate_txt"
-            android:textColor="@color/primary_orange"
-            android:textSize="20sp"
+            android:textColor="@color/light_gray"
+            android:textSize="16sp"
             tools:ignore="TextContrastCheck" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -211,19 +214,21 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/phone_call_icon"
-                tools:ignore="RedundantDescriptionCheck" />
+                tools:ignore="RedundantDescriptionCheck"
+                />
 
             <TextView
                 android:id="@+id/track_order_delivery_guy_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
+                android:fontFamily="sans-serif-condensed-medium"
                 android:text="@string/track_order_delivery_guy_name"
-                android:textColor="@color/neon_orange"
+                android:textColor="@color/cadmium_orange"
                 android:textSize="16sp"
+
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/track_order_delivery_guy_photo"
-
                 app:layout_constraintTop_toTopOf="@+id/track_order_delivery_guy_photo"
                 tools:ignore="TextContrastCheck" />
 
@@ -234,7 +239,7 @@
                 android:layout_marginStart="5dp"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:text="@string/track_order_delivery_guy_side_txt"
-                android:textColor="@color/neon_orange2"
+                android:textColor="@color/light_gray"
                 android:textSize="12sp"
 
                 android:textStyle="bold"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".OrdersActivity"
-    android:background="@color/light7_orange">
+    android:background="@color/light8_orange">
 
     <LinearLayout
         android:id="@+id/orders_navbar"
@@ -67,7 +67,7 @@
             android:drawablePadding="5dp"
             android:gravity="center"
             android:text="@string/orders_title_txt"
-            android:textColor="@color/primary_orange"
+            android:textColor="@color/light2_orange"
             android:textSize="28sp"
             android:textStyle="bold"
             app:drawableRightCompat="@drawable/fork_spoon_orange_icon"
@@ -110,10 +110,7 @@
         android:id="@+id/orders_recycler_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_margin="4dp"
         android:background="@drawable/recyclerview_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
