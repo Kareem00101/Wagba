@@ -11,14 +11,13 @@ public class UserTable
 {
     @PrimaryKey(autoGenerate = true)
     public int user_id;
-    public String user_name;
     public String user_email;
+    public String user_name;
     public String user_phone;
     public String profile_picture;
 
-    public UserTable(int user_id, String user_name, String user_phone, String user_email, String profile_picture)
+    public UserTable (String user_name, String user_phone, String user_email, String profile_picture)
     {
-        this.user_id = user_id;
         this.user_name = user_name;
         this.user_email = user_email;
         this.user_phone = user_phone;
@@ -30,7 +29,8 @@ public class UserTable
         return user_id;
     }
 
-    public void set_user_id(int user_id) {
+    public void set_user_id(int user_id)
+    {
         this.user_id = user_id;
     }
 

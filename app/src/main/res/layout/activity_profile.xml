@@ -23,8 +23,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:gravity="center"
         android:hint="@string/hint_mail"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -100,7 +101,7 @@
             android:ems="10"
 
             android:hint="@string/prof_username_et"
-
+            android:textColor="@color/gray"
             android:inputType="text"
             android:minHeight="48dp"
             android:textCursorDrawable="@drawable/orange_cursor"
@@ -119,6 +120,7 @@
             android:ems="10"
 
             android:hint="@string/prof_phone_num_et"
+            android:textColor="@color/gray"
             android:inputType="phone"
             android:minHeight="48dp"
             android:textCursorDrawable="@drawable/orange_cursor"
@@ -137,7 +139,8 @@
             android:ems="10"
 
             android:hint="@string/prof_mail_et"
-
+            android:textColorHint="@color/light_gray"
+            android:textColor="@color/light_gray"
             android:inputType="textWebEmailAddress|textEmailAddress"
             android:minHeight="48dp"
             android:textCursorDrawable="@drawable/orange_cursor"

@@ -6,7 +6,7 @@
     "entities": [
       {
         "tableName": "UserTable",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`user_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `user_name` TEXT, `user_email` TEXT, `user_phone` TEXT, `profile_picture` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`user_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `user_email` TEXT, `user_name` TEXT, `user_phone` TEXT, `profile_picture` TEXT)",
         "fields": [
           {
             "fieldPath": "user_id",
@@ -15,14 +15,14 @@
             "notNull": true
           },
           {
-            "fieldPath": "user_name",
-            "columnName": "user_name",
+            "fieldPath": "user_email",
+            "columnName": "user_email",
             "affinity": "TEXT",
             "notNull": false
           },
           {
-            "fieldPath": "user_email",
-            "columnName": "user_email",
+            "fieldPath": "user_name",
+            "columnName": "user_name",
             "affinity": "TEXT",
             "notNull": false
           },

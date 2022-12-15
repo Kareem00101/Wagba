@@ -3,6 +3,7 @@ package com.example.wagba;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -55,13 +56,16 @@ public class SignInActivity extends AppCompatActivity
     Button sign_in_btn;
     // --
 
+    /* Database */
+    MyDatabase db;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
 
         /*Disabling Night Mode*/
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-
         super.onCreate(savedInstanceState);
 
 
@@ -69,14 +73,16 @@ public class SignInActivity extends AppCompatActivity
         binding = ActivitySignInBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        /* Room Database */
+        //db = Room.databaseBuilder(getApplicationContext(), MyDatabase.class, "UserTable").allowMainThreadQueries().build();
+
 
         /*Firebase*/
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance("https://wagba-e4d23-default-rtdb.firebaseio.com/"); // probably not required rn
 
 
-        /*** Check if User is Already Signed In */
-
+        /* Check if User is Already Signed In */
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -86,9 +92,7 @@ public class SignInActivity extends AppCompatActivity
         finish();
         }
 
-
-
-        /** End of Check if User is Already Signed In*/
+        /* End of Check if User is Already Signed In*/
 
 
 
