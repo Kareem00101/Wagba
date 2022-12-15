@@ -90,4 +90,7 @@ dependencies {
 
     // For step view
     implementation 'com.github.shuhart:stepview:1.5.1'
+
+    // for images
+    implementation 'com.squareup.picasso:picasso:2.8'
 }

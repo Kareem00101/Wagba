@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.example.wagba.Models.users;
 import com.example.wagba.databinding.ActivitySignInBinding;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -74,6 +73,22 @@ public class SignInActivity extends AppCompatActivity
         /*Firebase*/
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance("https://wagba-e4d23-default-rtdb.firebaseio.com/"); // probably not required rn
+
+
+        /*** Check if User is Already Signed In */
+
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if(user != null)
+        {
+        navigateToMainActivity();
+        finish();
+        }
+
+
+
+        /** End of Check if User is Already Signed In*/
 
 
 
@@ -161,14 +176,9 @@ public class SignInActivity extends AppCompatActivity
                         if(task.isSuccessful())
                         {
                             FirebaseUser user = auth.getCurrentUser();
-                            users my_users = new users();
+                            UserTable my_users = new UserTable();
                             assert my_users != null;
 
-                            // # for the database
-                            my_users.setUser_id(user.getUid());
-                            my_users.setUser_name(user.getDisplayName());
-                            my_users.setProfile_picture(user.getPhotoUrl().toString());
-                            // database.getReference().child("users").child(user.getUid()).setValue(my_users);
 
                             // # Finally Move to Main Activity Upon Success
                             navigateToMainActivity();
@@ -180,7 +190,7 @@ public class SignInActivity extends AppCompatActivity
                 });
             } catch (ApiException e)
             {
-                Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignInActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
             }
         }
 
