@@ -95,7 +95,7 @@
 
     <!-- Restaurant Activity Strings -->
     <string name="restaurant_activity_title">Restaurant\nMenu</string>
-
+    <string name="restaurant_card_rating_txt">Restaurant Rating:</string>
 
 
     <!-- End of Restaurant Activity Strings -->
