@@ -93,10 +93,24 @@
 
     <!-- End of Track Order Activity Strings -->
 
-    <!-- Restaurant Activity Strings -->
-    <string name="restaurant_activity_title">Restaurant\nMenu</string>
+
+
+    <!-- Restaurant Card Strings -->
+    <string name="restaurant_card_title_txt">Restaurant Name</string>
     <string name="restaurant_card_rating_txt">Restaurant Rating:</string>
+    <string name="restaurant_card_image_txt">Restaurant Image</string>
+    <string name="restaurant_card_address_txt">Restaurant Image</string>
 
 
-    <!-- End of Restaurant Activity Strings -->
+    <!-- End of Restaurant Card Strings -->
+
+
+    <!-- Dish Card Strings -->
+    <string name="dish_card_title_txt">Dish Name</string>
+    <string name="dish_card_price_txt">Price: $50.00</string>
+    <string name="dish_card_image_content">Dish Image</string>
+
+
+    <!-- End of Dish Card Strings -->
+
 </resources>

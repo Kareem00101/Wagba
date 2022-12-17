@@ -15,6 +15,7 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:contentDescription="@string/restaurant_card_image_txt"
         android:orientation="vertical"
         android:padding="8dp">
 
@@ -23,12 +24,10 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
-            android:contentDescription="@string/todo"
-            android:scaleType="centerCrop"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:background="@drawable/card_img_background"
+
+            android:contentDescription="@string/restaurant_card_image_txt"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/restaurant_name"
@@ -36,10 +35,10 @@
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
-            android:textColor="@color/black"
+            android:text="@string/restaurant_card_title_txt"
+            android:textColor="@color/gray"
             android:textSize="16sp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/restaurant_address"
@@ -47,6 +46,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
             android:layout_weight="0"
+            android:text="@string/restaurant_card_address_txt"
             android:textColor="@color/black"
             android:textSize="14sp" />
 
@@ -61,8 +61,11 @@
                 android:layout_height="wrap_content"
                 android:text="@string/restaurant_card_rating_txt"
 
+                android:textColor="@color/light_gray"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TextContrastCheck" />
 
             <TextView
                 android:id="@+id/restaurant_rating"
@@ -70,7 +73,7 @@
                 android:layout_height="0dp"
                 android:layout_marginStart="2dp"
                 android:layout_weight="1"
-                android:textColor="@color/black"
+                android:textColor="@color/red_orange"
                 android:textSize="14sp"
                 app:layout_constraintStart_toEndOf="@+id/restaurant_rating_txt"
                 app:layout_constraintTop_toTopOf="@id/restaurant_rating_txt" />

@@ -210,10 +210,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/delivery_guy_photo_card"
                 android:layout_width="70dp"
-
-
                 android:layout_height="70dp"
-
                 android:layout_marginStart="10dp"
                 android:elevation="10dp"
                 app:cardCornerRadius="8dp"
@@ -227,7 +224,8 @@
                     android:layout_height="match_parent"
                     android:contentDescription="@string/track_delivery_guy_photo_content"
                     app:srcCompat="@drawable/delivery_guy_photo0"
-                    tools:ignore="ImageContrastCheck" />
+                    tools:ignore="ImageContrastCheck"
+                    />
             </androidx.cardview.widget.CardView>
 
 
