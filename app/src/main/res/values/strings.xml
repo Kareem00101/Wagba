@@ -93,6 +93,11 @@
 
     <!-- End of Track Order Activity Strings -->
 
+    <!-- Restaurant Activity Strings -->
+    <string name="restaurant_activity_title">Restaurant Menu</string>
+
+    <!-- End of Restaurant Activity Strings -->
+
 
 
     <!-- Restaurant Card Strings -->
@@ -100,16 +105,16 @@
     <string name="restaurant_card_rating_txt">Restaurant Rating:</string>
     <string name="restaurant_card_image_txt">Restaurant Image</string>
     <string name="restaurant_card_address_txt">Restaurant Image</string>
-
-
     <!-- End of Restaurant Card Strings -->
 
 
     <!-- Dish Card Strings -->
     <string name="dish_card_title_txt">Dish Name</string>
-    <string name="dish_card_price_txt">Price: $50.00</string>
+    <string name="dish_card_price_txt">Price:</string>
+    <string name="dish_card_price_unit_txt">EGP</string>
+    <string name="dish_card_dish_price_txt">0.00</string>
+    <string name="dish_card_dish_quantity_txt">0</string>
     <string name="dish_card_image_content">Dish Image</string>
-
 
     <!-- End of Dish Card Strings -->
 

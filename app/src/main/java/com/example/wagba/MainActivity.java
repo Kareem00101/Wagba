@@ -2,21 +2,30 @@ package com.example.wagba;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wagba.databinding.ActivityMainBinding;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 
 
 public class MainActivity extends AppCompatActivity
@@ -25,6 +34,8 @@ public class MainActivity extends AppCompatActivity
     /*Firebase*/
     // private FirebaseAuth auth;
     // private FirebaseAuth.AuthStateListener authListener;
+    private DatabaseReference ref;
+    private FirebaseDatabase database;
 
     /*View Binding Variable*/
     private ActivityMainBinding binding;
@@ -34,7 +45,14 @@ public class MainActivity extends AppCompatActivity
     Button logout_btn;
     Button nav_cart;
 
+
     RecyclerView restaurantRecyclerView;
+    RestaurantAdapter restaurantAdapter;
+
+    public static ArrayList<RestaurantModel> restaurantList;
+    public List<DishModel> dishList = new ArrayList<>();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -50,27 +68,76 @@ public class MainActivity extends AppCompatActivity
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
         /*Main Code Starts Here*/
 
         /*** Recycler View Code ***/
 
-        restaurantRecyclerView = binding.mainRecyclerView;
-        ArrayList<RestaurantModel> restaurantList = new ArrayList<>();
-        restaurantList.add(new RestaurantModel("Restaurant 1", 4, R.drawable.call_btn));
-        restaurantList.add(new RestaurantModel("Restaurant 2", 3, R.drawable.call_btn));
-        restaurantList.add(new RestaurantModel("Restaurant 3", 5, R.drawable.call_btn));
+        //
+        restaurantList = new ArrayList<>();
+        restaurantAdapter = new RestaurantAdapter(restaurantList, this);
 
-        RestaurantAdapter restaurantAdapter = new RestaurantAdapter(restaurantList, this);
+        // Get a reference to our posts
+        database = FirebaseDatabase.getInstance();
+        ref = database.getReference("restaurants");
+
+
+
+        // Attach a listener to read the data at our posts reference
+        ref.addValueEventListener(new ValueEventListener()
+        {
+            @Override
+            public void onDataChange(DataSnapshot snapshot)
+            {
+                int i = 0;
+                for (DataSnapshot sp: snapshot.getChildren())
+                {
+                    for (DataSnapshot so : sp.getChildren())
+                    {
+
+                        for(DataSnapshot s : so.getChildren())
+                        {
+                            HashMap dish = (HashMap) s.getValue();
+                            String dish_price = dish.get("price").toString();
+                            Double dish_price_double = Double.parseDouble(dish_price.replace("EGP", "").trim());
+                            dishList.add(new DishModel(dish.get("name").toString(), dish_price_double, dish.get("image").toString()));
+                        }
+                    }
+
+                    HashMap rest = (HashMap) sp.getValue();
+                    restaurantList.add(new RestaurantModel(rest.get("name").toString(), Integer.parseInt(rest.get("rating").toString()), rest.get("image").toString(),  dishList));
+                    restaurantList.get(i).setRestaurant_dishes(dishList);
+                    Log.d("recyclerDebug = dish", restaurantList.get(i).toString());
+                    dishList = new ArrayList<>();
+                    Log.d("recyclerDebug = dish", restaurantList.get(i).toString());
+                    i++;
+
+                }
+                restaurantAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError)
+            {
+                System.out.println("The read failed: " + databaseError.getCode());
+                Toast.makeText(MainActivity.this, "Error: Database Error" + databaseError.getCode(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+        restaurantRecyclerView = binding.mainRecyclerView;
         restaurantRecyclerView.setAdapter(restaurantAdapter);
         restaurantRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
 
-
         /*** End of Recycler View Code ***/
 
-        /*** Navigation Bar Code ***/
 
+
+        /*** Navigation Bar Code ***/
 
         // # Required Buttons
         nav_profile = binding.navProfileBtn;
@@ -149,25 +216,26 @@ public class MainActivity extends AppCompatActivity
 
     /*** Navigation Supporting Functionalities ***/
 
+
     void navigateToProfileActivity()
     {
-        //finish();
         Intent intent = new Intent(MainActivity.this,ProfileActivity.class);
         startActivity(intent);
+        finish();
     }
 
     void navigateToCartActivity()
     {
-        //finish();
         Intent intent = new Intent(MainActivity.this,CartActivity.class);
         startActivity(intent);
+        finish();
     }
 
     void navigateToOrdersActivity()
     {
-        //finish();
         Intent intent = new Intent(MainActivity.this,OrdersActivity.class);
         startActivity(intent);
+        finish();
     }
 
 

@@ -105,6 +105,7 @@
 
     </LinearLayout>
 
+    <!--
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/track_order_cart_recycler"
         android:layout_width="match_parent"
@@ -118,6 +119,7 @@
         android:padding="5dp">
 
     </androidx.recyclerview.widget.RecyclerView>
+    -->
 
 
     <com.shuhart.stepview.StepView
@@ -250,7 +252,7 @@
                 android:fontFamily="sans-serif-condensed-medium"
                 android:text="@string/track_order_delivery_guy_name"
                 android:textColor="@color/cadmium_orange"
-                android:textSize="16sp"
+                android:textSize="18sp"
 
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/delivery_guy_photo_card"
@@ -264,8 +266,8 @@
                 android:layout_marginStart="5dp"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:text="@string/track_order_delivery_guy_side_txt"
-                android:textColor="@color/light_gray"
-                android:textSize="12sp"
+                android:textColor="@color/gray"
+                android:textSize="13sp"
 
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/delivery_guy_photo_card"

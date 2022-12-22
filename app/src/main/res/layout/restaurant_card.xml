@@ -17,13 +17,13 @@
         android:layout_height="match_parent"
         android:contentDescription="@string/restaurant_card_image_txt"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:padding="5dp">
 
         <ImageView
             android:id="@+id/restaurant_image"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="3"
+            android:layout_weight="3.5"
             android:background="@drawable/card_img_background"
 
             android:contentDescription="@string/restaurant_card_image_txt"
@@ -39,7 +39,7 @@
             android:textColor="@color/gray"
             android:textSize="16sp"
             android:textStyle="bold" />
-
+        <!--
         <TextView
             android:id="@+id/restaurant_address"
             android:layout_width="match_parent"
@@ -49,6 +49,7 @@
             android:text="@string/restaurant_card_address_txt"
             android:textColor="@color/black"
             android:textSize="14sp" />
+            -->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

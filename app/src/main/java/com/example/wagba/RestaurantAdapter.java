@@ -8,6 +8,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 
@@ -38,7 +41,8 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
         RestaurantModel restaurantModel = restaurantList.get(position);
         holder.restaurantName.setText(restaurantModel.getRestaurantName());
         holder.restaurantRating.setText("" + restaurantModel.getRestaurantRating());
-        holder.restaurantImage.setImageResource(restaurantModel.getRestaurantImage());
+        Glide.with(context).load(restaurantModel.getRestaurantImage()).into(holder.restaurantImage);
+
     }
 
     @Override
