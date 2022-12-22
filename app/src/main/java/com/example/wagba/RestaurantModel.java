@@ -2,17 +2,18 @@ package com.example.wagba;
 
 import com.google.firebase.database.IgnoreExtraProperties;
 
-import java.util.List;
+import java.io.Serializable;
+import java.util.ArrayList;
 
 @IgnoreExtraProperties
-public class RestaurantModel
+public class RestaurantModel implements Serializable
 {
     public String restaurant_name;
     public int restaurant_rating;
     public String restaurant_image;
-    public List<DishModel> restaurant_dishes;
+    public ArrayList<DishModel> restaurant_dishes;
 
-    public RestaurantModel(String restaurant_name, int restaurant_rating, String restaurant_image, List<DishModel> restaurant_dishes)
+    public RestaurantModel(String restaurant_name, int restaurant_rating, String restaurant_image, ArrayList<DishModel> restaurant_dishes)
     {
         this.restaurant_name = restaurant_name;
         this.restaurant_rating = restaurant_rating;
@@ -51,12 +52,12 @@ public class RestaurantModel
         this.restaurant_image = restaurant_image;
     }
 
-    public List<DishModel> getRestaurant_dishes()
+    public ArrayList<DishModel> getRestaurant_dishes()
     {
         return restaurant_dishes;
     }
 
-    public void setRestaurant_dishes(List<DishModel> restaurant_dishes)
+    public void setRestaurant_dishes(ArrayList<DishModel> restaurant_dishes)
     {
         this.restaurant_dishes = restaurant_dishes;
     }

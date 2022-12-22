@@ -95,6 +95,7 @@
 
     <!-- Restaurant Activity Strings -->
     <string name="restaurant_activity_title">Restaurant Menu</string>
+    <string name="restaurant_bot_nav_text">go to cart</string>
 
     <!-- End of Restaurant Activity Strings -->
 

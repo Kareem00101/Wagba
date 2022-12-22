@@ -79,8 +79,8 @@
 
         <androidx.constraintlayout.utils.widget.ImageFilterButton
             android:id="@+id/dish_increment_btn"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="2dp"
             android:background="@drawable/quantity_buttons"
@@ -93,8 +93,8 @@
 
         <androidx.constraintlayout.utils.widget.ImageFilterButton
             android:id="@+id/dish_decrement_btn"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginBottom="2dp"
             android:background="@drawable/quantity_buttons"
             android:contentDescription="@string/todo"

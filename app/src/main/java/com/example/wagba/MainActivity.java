@@ -25,11 +25,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends AppCompatActivity implements RecyclerViewInterface
 {
 
     /*Firebase*/
@@ -51,7 +50,7 @@ public class MainActivity extends AppCompatActivity
     RestaurantAdapter restaurantAdapter;
 
     public static ArrayList<RestaurantModel> restaurantList;
-    public List<DishModel> dishList = new ArrayList<>();
+    public static ArrayList<DishModel> dishList = new ArrayList<>();
 
     // Shimmer
     public ShimmerFrameLayout shimmerFrameLayout;
@@ -83,7 +82,7 @@ public class MainActivity extends AppCompatActivity
 
         //
         restaurantList = new ArrayList<>();
-        restaurantAdapter = new RestaurantAdapter(restaurantList, this);
+        restaurantAdapter = new RestaurantAdapter(restaurantList, this, this);
 
         // Get a reference to our posts
         database = FirebaseDatabase.getInstance();
@@ -121,6 +120,7 @@ public class MainActivity extends AppCompatActivity
                     i++;
 
                 }
+
                 shimmerFrameLayout.stopShimmer();
                 shimmerFrameLayout.setVisibility(View.GONE);
                 restaurantRecyclerView.setVisibility(View.VISIBLE);
@@ -249,6 +249,14 @@ public class MainActivity extends AppCompatActivity
         finish();
     }
 
+    @Override
+    public void onRestaurantClick(RestaurantModel restaurantModel)
+    {
+        Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
+        intent.putExtra("restaurant", restaurantModel);
+        startActivity(intent);
+        finish();
+    }
 
 
     /*** End of Navigation Supporting Functionalities ***/

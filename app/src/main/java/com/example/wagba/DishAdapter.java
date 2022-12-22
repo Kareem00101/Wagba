@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.utils.widget.ImageFilterButton;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -16,10 +17,10 @@ import java.util.ArrayList;
 
 public class DishAdapter extends RecyclerView.Adapter<DishAdapter.DishViewHolder>
 {
-    private ArrayList<RestaurantModel> dishList;
+    private ArrayList<DishModel> dishList;
     private Context context;
 
-    public DishAdapter(ArrayList<RestaurantModel> dishList, Context context)
+    public DishAdapter(ArrayList<DishModel> dishList, Context context)
     {
         this.dishList = dishList;
         this.context = context;
@@ -37,10 +38,10 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.DishViewHolder
     @Override
     public void onBindViewHolder(@NonNull DishViewHolder holder, int position)
     {
-        RestaurantModel dishModel = dishList.get(position);
-        holder.dishName.setText(dishModel.getRestaurant_dishes().get(position).getDish_name());
-        holder.dishPrice.setText(String.valueOf(dishModel.getRestaurant_dishes().get(position).getDish_price()));
-        Glide.with(context).load(dishModel.getRestaurant_dishes().get(position).getDish_image()).into(holder.dishImage);
+        DishModel dishModel = dishList.get(position);
+        holder.dishName.setText(dishModel.getDish_name());
+        holder.dishPrice.setText(String.valueOf(dishModel.getDish_price()));
+        Glide.with(context).load(dishModel.getDish_image()).into(holder.dishImage);
 
     }
 
@@ -56,12 +57,45 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.DishViewHolder
         TextView dishPrice;
         ImageView dishImage;
 
+        TextView noOfItems;
+        ImageFilterButton incBtn;
+        ImageFilterButton decBtn;
+
         public DishViewHolder(@NonNull View itemView)
         {
             super(itemView);
             dishName = itemView.findViewById(R.id.dish_card_title_txt);
             dishPrice = itemView.findViewById(R.id.dish_card_dish_price);
             dishImage = itemView.findViewById(R.id.dish_card_image);
+
+            incBtn = itemView.findViewById(R.id.dish_increment_btn);
+            decBtn = itemView.findViewById(R.id.dish_decrement_btn);
+            noOfItems = itemView.findViewById(R.id.dish_quantity);
+
+            incBtn.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    int currentQuantity = Integer.parseInt(noOfItems.getText().toString());
+                    currentQuantity++;
+                    noOfItems.setText(String.valueOf(currentQuantity));
+                }
+            });
+
+            decBtn.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    int currentQuantity = Integer.parseInt(noOfItems.getText().toString());
+                    if (currentQuantity > 0)
+                    {
+                        currentQuantity--;
+                        noOfItems.setText(String.valueOf(currentQuantity));
+                    }
+                }
+            });
         }
     }
 }

@@ -1,6 +1,8 @@
 package com.example.wagba;
 
-public class DishModel
+import java.io.Serializable;
+
+public class DishModel implements Serializable
 {
     public String dish_name;
     public double dish_price;
@@ -44,8 +46,7 @@ public class DishModel
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "DishModel{" +
                 "dish_name='" + dish_name + '\'' +
                 ", dish_price=" + dish_price +
