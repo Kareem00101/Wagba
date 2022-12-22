@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wagba.databinding.ActivityMainBinding;
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -52,6 +53,9 @@ public class MainActivity extends AppCompatActivity
     public static ArrayList<RestaurantModel> restaurantList;
     public List<DishModel> dishList = new ArrayList<>();
 
+    // Shimmer
+    public ShimmerFrameLayout shimmerFrameLayout;
+
 
 
     @Override
@@ -72,6 +76,10 @@ public class MainActivity extends AppCompatActivity
         /*Main Code Starts Here*/
 
         /*** Recycler View Code ***/
+
+        // Starting Shimmer
+        shimmerFrameLayout = binding.shimmerViewContainer;
+        shimmerFrameLayout.startShimmer();
 
         //
         restaurantList = new ArrayList<>();
@@ -113,6 +121,9 @@ public class MainActivity extends AppCompatActivity
                     i++;
 
                 }
+                shimmerFrameLayout.stopShimmer();
+                shimmerFrameLayout.setVisibility(View.GONE);
+                restaurantRecyclerView.setVisibility(View.VISIBLE);
                 restaurantAdapter.notifyDataSetChanged();
 
             }
