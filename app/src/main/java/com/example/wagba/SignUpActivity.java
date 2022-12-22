@@ -1,8 +1,5 @@
 package com.example.wagba;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.wagba.databinding.ActivitySignUpBinding;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -131,7 +131,7 @@ public class SignUpActivity extends AppCompatActivity
             Toast.makeText(getApplicationContext(), "password cannot be empty", Toast.LENGTH_SHORT).show();
             return false;
         }
-        else if(user_cpasswd_p.equals(user_cpasswd_p))
+        else if(user_passwd_p.equals(user_cpasswd_p))
         {
             return true;
         }
