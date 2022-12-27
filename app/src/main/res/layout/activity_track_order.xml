@@ -127,7 +127,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="5dp"
-        android:layout_weight="1.75"
+        android:layout_weight="2"
         android:background="@color/white"
         android:elevation="5dp"
         android:padding="10dp"
@@ -161,7 +161,10 @@
         android:gravity="center"
         android:orientation="vertical"
 
-        android:padding="20dp">
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="30dp">
 
         <TextView
             android:id="@+id/track_order_order_details_title_txt"
@@ -176,7 +179,7 @@
             tools:ignore="TextContrastCheck" />
 
         <TextView
-            android:id="@+id/track_order_total_price_txt"
+            android:id="@+id/track_total_price_txt"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -188,7 +191,7 @@
             tools:ignore="TextContrastCheck" />
 
         <TextView
-            android:id="@+id/track_order_delivery_gate_txt"
+            android:id="@+id/track_delivery_gate_txt"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -199,12 +202,24 @@
             android:textSize="16sp"
             tools:ignore="TextContrastCheck" />
 
+        <TextView
+            android:id="@+id/track_delivery_period_txt"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:padding="5dp"
+            android:text="@string/track_order_delivery_period_txt"
+            android:textColor="@color/light_gray"
+            android:textSize="16sp"
+            tools:ignore="TextContrastCheck" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/track_order_delivery_guy_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="5dp"
-            android:layout_weight="4"
+            android:layout_weight="2.5"
 
             android:background="@drawable/track_order_delivery_background"
             android:elevation="5dp">
@@ -226,8 +241,7 @@
                     android:layout_height="match_parent"
                     android:contentDescription="@string/track_delivery_guy_photo_content"
                     app:srcCompat="@drawable/delivery_guy_photo0"
-                    tools:ignore="ImageContrastCheck"
-                    />
+                    tools:ignore="ImageContrastCheck" />
             </androidx.cardview.widget.CardView>
 
 

@@ -66,20 +66,35 @@
 
     <!-- Main Cart Strings -->
     <string name="cart_title_txt">My Cart</string>
-    <string name="cart_total_price_txt">Total Price\n$650.00</string>
+
+    <string name="cart_total_price_txt">Total Price: 100</string>
+    <string name="cart_total_price">100</string>
+
+    <string name="cart_delivery_fee_txt">Delivery Fee: 10EGP</string>
+    <string name="cart_delivery_fee">10</string>
+
+    <string name="cart_items_price_txt">Items Price: 90EGP</string>
+    <string name="cart_items_price">90</string>
+
     <string name="cart_pay_txt">Order Now</string>
     <string name="cart_delivery_gate_txt">Delivery Gate</string>
+
+    <string name="cart_delivery_time_txt">Delivery Period</string>
 
     <string name="cart_radio_btn_gate3">Gate 3</string>
     <string name="cart_radio_btn_gate4">Gate 4</string>
 
+    <string name="cart_radio_btn_period1">12:00 PM</string>
+    <string name="cart_radio_btn_period2">3:00 PM</string>
+    <string name="cart_radio_btn_period3">test</string>
     <!-- End of Cart Activity Strings -->
 
     <!-- Track Order Activity Strings -->
 
     <string name="track_order_title_txt">Track Order</string>
-    <string name="track_order_total_price_txt">Order total price is <b>$650.00</b></string>
-    <string name="track_order_delivery_gate_txt">Order delivering to gate <b>3</b></string>
+    <string name="track_order_total_price_txt">Order total price: 100</string>
+    <string name="track_order_delivery_gate_txt">Order delivering to gate: 3</string>
+    <string name="track_order_delivery_period_txt">Order should be delivered by 12:00PM</string>
     <string name="track_order_delivery_gate">Gate 3</string>
     <string name="track_order_photo_content">track order image</string>
 

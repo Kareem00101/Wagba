@@ -129,6 +129,86 @@
         android:background="@drawable/elevated_layout_background">
 
         <TextView
+            android:id="@+id/cart_delivery_time_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/cart_delivery_time_txt"
+            android:textColor="@color/light1_orange"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextContrastCheck" />
+
+        <RadioGroup
+            android:id="@+id/cart_delivery_time_radio_group"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:checkedButton="@id/radio_period_3"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@+id/cart_delivery_time_txt">
+
+            <RadioButton
+                android:id="@+id/radio_period_1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:buttonTint="@color/light3_orange"
+                android:text="@string/cart_radio_btn_period1"
+                android:textColor="@color/neon_orange2"
+                android:textSize="16sp"
+                android:textStyle="bold"
+
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck,DuplicateSpeakableTextCheck" />
+
+            <RadioButton
+                android:id="@+id/radio_period_2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:buttonTint="@color/light3_orange"
+                android:text="@string/cart_radio_btn_period1"
+                android:textColor="@color/neon_orange2"
+                android:textSize="16sp"
+                android:textStyle="bold"
+
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck,DuplicateSpeakableTextCheck" />
+
+            <RadioButton
+                android:id="@+id/radio_period_3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:buttonTint="@color/light3_orange"
+                android:text="@string/cart_radio_btn_period3"
+                android:textColor="@color/neon_orange2"
+                android:textSize="16sp"
+                android:textStyle="bold"
+
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck,DuplicateSpeakableTextCheck" />
+        </RadioGroup>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1.25"
+        android:background="@drawable/elevated_layout_background"
+
+        android:elevation="5dp">
+
+        <TextView
             android:id="@+id/cart_delivery_gate_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -190,31 +270,60 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="5dp"
-        android:layout_weight="1.25"
+        android:layout_weight="2"
+        android:background="@drawable/elevated_layout_background"
         android:elevation="5dp"
         android:gravity="center"
+
         android:orientation="horizontal"
-
         android:paddingLeft="15dp"
-        android:paddingRight="15dp"
 
-        android:background="@drawable/elevated_layout_background">
+        android:paddingRight="15dp">
 
-        <TextView
-            android:id="@+id/cart_price_txt"
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:text="@string/cart_total_price_txt"
-            android:textColor="@color/light_gray"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1.25"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/cart_price_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/cart_total_price_txt"
+                android:textColor="@color/light_gray"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/cart_items_price_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/cart_items_price_txt"
+
+                android:textColor="@color/light_gray"
+                tools:ignore="TextContrastCheck" />
+
+            <TextView
+                android:id="@+id/cart_delivery_price_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/cart_delivery_fee_txt"
+
+                android:textColor="@color/light_gray"
+                tools:ignore="TextContrastCheck" />
+
+        </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/cart_pay_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:background="@drawable/order_button"
