@@ -32,15 +32,11 @@ public class CartActivity extends AppCompatActivity {
         binding = ActivityCartBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        Intent intent = this.getIntent();
-        orderedDishes = (ArrayList<DishModel>) intent.getSerializableExtra("orderedDishes");
-        dishAdapter = new DishAdapter(orderedDishes, this);
-        cartRecyclerView = binding.cartRecycler;
-        cartRecyclerView.setAdapter(dishAdapter);
-        cartRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        /* setup recycler view */
+        setupRecyclerView();
 
 
-        /*** Navigation Bar Code ***/
+        /* Navigation Code */
 
         // # Required Buttons
         back_btn = binding.cartBackBtn;
@@ -65,17 +61,15 @@ public class CartActivity extends AppCompatActivity {
             }
         });
 
-        /*** End of Navigation Bar Code ***/
+        /* End of Navigation Bar Code */
 
 
+        /* Calculating Total Price */
 
-        /*** Calculating Total Price ***/
+        //
+        setupPrices();
 
-
-
-
-        /*** End of Calculating Total Price ***/
-
+        /* End of Calculating Total Price */
 
 
     } // End of onCreate
@@ -84,6 +78,30 @@ public class CartActivity extends AppCompatActivity {
 
     /*** Payment Supporting Functionalities ***/
 
+    void setupPrices()
+    {
+        // # Required Variables
+        double total_price = 0.0;
+        double delivery_cost = 10.0;
+
+        // # Calculating Total Price
+        for (DishModel dish : orderedDishes)
+        {
+            total_price += dish.getDishPrice()*dish.getDishQuantity();
+        }
+
+        // # Setting Total Price
+        String ItemsTotal = "Items Price: " + total_price;
+        String DeliveryCost = "Delivery Cost: " + delivery_cost;
+        String TotalPrice = "Total Price: " + (total_price + delivery_cost);
+        binding.cartItemsPriceTxt.setText(ItemsTotal);
+
+        // # Setting Delivery Cost
+        binding.cartDeliveryPriceTxt.setText(DeliveryCost);
+
+        // # Setting Total Cost
+        binding.cartTotalPriceTxt.setText(TotalPrice);
+    }
 
 
 
@@ -92,6 +110,16 @@ public class CartActivity extends AppCompatActivity {
 
 
     /*** Supporting Functionalities ***/
+
+    void setupRecyclerView()
+    {
+        Intent intent = this.getIntent();
+        orderedDishes = (ArrayList<DishModel>) intent.getSerializableExtra("orderedDishes");
+        dishAdapter = new DishAdapter(orderedDishes, this);
+        cartRecyclerView = binding.cartRecycler;
+        cartRecyclerView.setAdapter(dishAdapter);
+        cartRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
 
     void navigateToMainActivity()
     {
@@ -110,15 +138,6 @@ public class CartActivity extends AppCompatActivity {
 
 
 
-//    /*** Handle Back Button ***/
-//    @Override
-//    public void onBackPressed()
-//    {
-//        navigateToMainActivity();
-//    }
-//    /*** End of Handle Back Button ***/
-
-
 
     /*** Lifecycle Methods ***/
     @Override
@@ -128,6 +147,7 @@ public class CartActivity extends AppCompatActivity {
         finish();
     }
     /*** End of Lifecycle Methods ***/
+
 
 
 } // End of Class

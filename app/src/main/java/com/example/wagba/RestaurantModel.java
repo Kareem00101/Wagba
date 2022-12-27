@@ -57,7 +57,7 @@ public class RestaurantModel implements Serializable
         return restaurant_dishes;
     }
 
-    public void setRestaurant_dishes(ArrayList<DishModel> restaurant_dishes)
+    public void setRestaurantDishes(ArrayList<DishModel> restaurant_dishes)
     {
         this.restaurant_dishes = restaurant_dishes;
     }

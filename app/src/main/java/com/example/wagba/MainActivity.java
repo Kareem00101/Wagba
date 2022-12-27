@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
 
                     HashMap rest = (HashMap) sp.getValue();
                     restaurantList.add(new RestaurantModel(rest.get("name").toString(), Integer.parseInt(rest.get("rating").toString()), rest.get("image").toString(),  dishList));
-                    restaurantList.get(i).setRestaurant_dishes(dishList);
+                    restaurantList.get(i).setRestaurantDishes(dishList);
                     Log.d("recyclerDebug = dish", restaurantList.get(i).toString());
                     dishList = new ArrayList<>();
                     Log.d("recyclerDebug = dish", restaurantList.get(i).toString());

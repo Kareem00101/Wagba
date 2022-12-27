@@ -40,11 +40,11 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.DishViewHolder
     {
         DishModel dishModel = dishList.get(position);
 
-        holder.dishName.setText(dishModel.getDish_name());
-        holder.dishPrice.setText(String.valueOf(dishModel.getDish_price()));
-        Glide.with(context).load(dishModel.getDish_image()).into(holder.dishImage);
+        holder.dishName.setText(dishModel.getDishName());
+        holder.dishPrice.setText(String.valueOf(dishModel.getDishPrice()));
+        Glide.with(context).load(dishModel.getDishImage()).into(holder.dishImage);
 
-        holder.noOfItems.setText(String.valueOf(dishModel.getDish_quantity()));
+        holder.noOfItems.setText(String.valueOf(dishModel.getDishQuantity()));
 
     }
 
@@ -60,7 +60,7 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.DishViewHolder
 
         for (DishModel dish : dishList)
         {
-            if (dish.getDish_quantity() > 0)
+            if (dish.getDishQuantity() > 0)
             {
                 orderedDishes.add(dish);
             }
@@ -109,7 +109,7 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.DishViewHolder
                     int currentQuantity = Integer.parseInt(noOfItems.getText().toString());
                     currentQuantity++;
                     noOfItems.setText(String.valueOf(currentQuantity));
-                    dishAdapter.dishList.get(getBindingAdapterPosition()).setDish_quantity(currentQuantity);
+                    dishAdapter.dishList.get(getBindingAdapterPosition()).setDishQuantity(currentQuantity);
                 }
             });
 
@@ -124,7 +124,7 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.DishViewHolder
                         currentQuantity--;
                         noOfItems.setText(String.valueOf(currentQuantity));
                     }
-                    dishAdapter.dishList.get(getBindingAdapterPosition()).setDish_quantity(currentQuantity);
+                    dishAdapter.dishList.get(getBindingAdapterPosition()).setDishQuantity(currentQuantity);
                 }
             });
         }

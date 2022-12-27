@@ -16,42 +16,42 @@ public class DishModel implements Serializable
         this.dish_image = dish_image;
     }
 
-    public String getDish_name()
+    public String getDishName()
     {
         return dish_name;
     }
 
-    public void setDish_name(String dish_name)
+    public void setDishName(String dish_name)
     {
         this.dish_name = dish_name;
     }
 
-    public double getDish_price()
+    public double getDishPrice()
     {
         return dish_price;
     }
 
-    public void setDish_price(double dish_price)
+    public void setDishPrice(double dish_price)
     {
         this.dish_price = dish_price;
     }
 
-    public String getDish_image()
+    public String getDishImage()
     {
         return dish_image;
     }
 
-    public void setDish_image(String dish_image)
+    public void setDishImage(String dish_image)
     {
         this.dish_image = dish_image;
     }
 
-    public int getDish_quantity()
+    public int getDishQuantity()
     {
         return dish_quantity;
     }
 
-    public void setDish_quantity(int dish_quantity)
+    public void setDishQuantity(int dish_quantity)
     {
         this.dish_quantity = dish_quantity;
     }
