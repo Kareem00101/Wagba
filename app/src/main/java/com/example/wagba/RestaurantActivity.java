@@ -22,7 +22,7 @@ public class RestaurantActivity extends AppCompatActivity {
     Button back_btn;
     Button go_to_cart_btn;
 
-
+    //
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -58,16 +58,19 @@ public class RestaurantActivity extends AppCompatActivity {
 
         /*** Navigation Functionality ***/
 
+        // to home
         back_btn = binding.restaurantBackBtn;
         back_btn.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                navigateToMainActivity();
+                onBackPressed();
             }
         });
 
+
+        // to cart
         go_to_cart_btn = binding.restToCartBtn;
         go_to_cart_btn.setOnClickListener(new View.OnClickListener()
         {
@@ -78,10 +81,13 @@ public class RestaurantActivity extends AppCompatActivity {
             }
         });
 
+
         /*** End of Navigation Functionality ***/
 
 
     } // end of onCreate
+
+
 
     /*** Supporting Functionalities ***/
 
@@ -90,17 +96,36 @@ public class RestaurantActivity extends AppCompatActivity {
     {
         Intent intent = new Intent(RestaurantActivity.this, MainActivity.class);
         startActivity(intent);
-        finish();
     }
 
     void navigateToCartActivity()
     {
         Intent intent = new Intent(RestaurantActivity.this,CartActivity.class);
         startActivity(intent);
-        finish();
     }
 
     /*** End of Supporting Functionalities ***/
+
+
+
+//    /*** Handle Back Button ***/
+//    @Override
+//    public void onBackPressed()
+//    {
+//        navigateToMainActivity();
+//    }
+//    /*** End of Handle Back Button ***/
+
+
+
+    /*** Lifecycle Methods ***/
+    @Override
+    protected void onStop()
+    {
+        super.onStop();
+        finish();
+    }
+    /*** End of Lifecycle Methods ***/
 
 
 } // end of Class

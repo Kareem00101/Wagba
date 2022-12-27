@@ -1,8 +1,5 @@
 package com.example.wagba;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +8,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.wagba.databinding.ActivityMainBinding;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
+
 import com.example.wagba.databinding.ActivityProfileBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -33,7 +32,7 @@ public class ProfileActivity extends AppCompatActivity
     // For Firebase
     FirebaseAuth auth;
 
-
+    //
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -61,7 +60,7 @@ public class ProfileActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                navigateToMainActivity();
+                onBackPressed();
             }
         });
 
@@ -234,10 +233,30 @@ public class ProfileActivity extends AppCompatActivity
     {
         Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
         startActivity(intent);
-        finish();
     }
 
     /*** End of Supporting Functionalities ***/
+
+
+
+//    /*** Handle Back Button ***/
+//    @Override
+//    public void onBackPressed()
+//    {
+//        navigateToMainActivity();
+//    }
+//    /*** End of Handle Back Button ***/
+
+
+
+    /*** Lifecycle Methods ***/
+    @Override
+    protected void onStop()
+    {
+        super.onStop();
+        finish();
+    }
+    /*** End of Lifecycle Methods ***/
 
 
 

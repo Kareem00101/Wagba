@@ -70,7 +70,6 @@ public class SignUpActivity extends AppCompatActivity
 
                 Intent intent = new Intent(SignUpActivity.this,SignInActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -170,16 +169,23 @@ public class SignUpActivity extends AppCompatActivity
 
 
 
-    /** Extra Supporting Functions **/
+    /** Navigation Supporting Functions **/
 
     void navigateToSignInActivity()
     {
         Intent intent = new Intent(SignUpActivity.this,SignInActivity.class);
         startActivity(intent);
+    }
+
+    /** End of Navigation Supporting Functions **/
+
+    /*** Life Cycle Functions ***/
+    protected void onStop()
+    {
+        super.onStop();
         finish();
     }
 
-
-    /** End of Extra Supporting Functions **/
+    /*** End of Life Cycle Functions ***/
 
 } // end of class

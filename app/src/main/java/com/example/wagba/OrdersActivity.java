@@ -1,15 +1,13 @@
 package com.example.wagba;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.wagba.databinding.ActivityMainBinding;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.wagba.databinding.ActivityOrdersBinding;
-import com.example.wagba.databinding.ActivityProfileBinding;
 
 public class OrdersActivity extends AppCompatActivity
 {
@@ -19,6 +17,8 @@ public class OrdersActivity extends AppCompatActivity
     private ActivityOrdersBinding binding;
     Button back_btn;
 
+
+    //
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -27,6 +27,7 @@ public class OrdersActivity extends AppCompatActivity
         /*Binding View*/
         binding = ActivityOrdersBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
 
 
         /*** Navigation Bar Code ***/
@@ -40,7 +41,7 @@ public class OrdersActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                navigateToMainActivity();
+                onBackPressed();
             }
         });
 
@@ -56,10 +57,29 @@ public class OrdersActivity extends AppCompatActivity
 
         Intent intent = new Intent(OrdersActivity.this,MainActivity.class);
         startActivity(intent);
-        finish();
     }
 
     /*** End of Supporting Functionalities ***/
+
+
+//    /*** Handle Back Button ***/
+//    @Override
+//    public void onBackPressed()
+//    {
+//        navigateToMainActivity();
+//    }
+//    /*** End of Handle Back Button ***/
+
+
+
+    /*** Lifecycle Methods ***/
+    @Override
+    protected void onStop()
+    {
+        super.onStop();
+        finish();
+    }
+    /*** End of Lifecycle Methods ***/
 
 
 

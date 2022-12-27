@@ -1,10 +1,5 @@
 package com.example.wagba;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.room.Room;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,6 +9,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.wagba.databinding.ActivitySignInBinding;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -129,7 +127,6 @@ public class SignInActivity extends AppCompatActivity
             {
                 Intent intent = new Intent(SignInActivity.this,SignUpActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -245,11 +242,20 @@ public class SignInActivity extends AppCompatActivity
     {
         Intent intent = new Intent(SignInActivity.this, MainActivity.class);
         startActivity(intent);
+    }
+
+    /*** End of Extra Supporting Functions ***/
+
+
+    /*** Life Cycle Functions ***/
+
+    protected void onStop()
+    {
+        super.onStop();
         finish();
     }
 
-
-    /*** End of Extra Supporting Functions ***/
+    /*** End of Life Cycle Functions ***/
 
 
 } // end of class

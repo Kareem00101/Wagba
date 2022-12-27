@@ -27,13 +27,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-
 public class MainActivity extends AppCompatActivity implements RecyclerViewInterface
 {
 
     /*Firebase*/
-    // private FirebaseAuth auth;
-    // private FirebaseAuth.AuthStateListener authListener;
     private DatabaseReference ref;
     private FirebaseDatabase database;
 
@@ -52,11 +49,11 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     public static ArrayList<RestaurantModel> restaurantList;
     public static ArrayList<DishModel> dishList = new ArrayList<>();
 
-    // Shimmer
+    //
     public ShimmerFrameLayout shimmerFrameLayout;
 
 
-
+    //
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -76,19 +73,75 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
 
         /*** Recycler View Code ***/
 
-        // Starting Shimmer
-        shimmerFrameLayout = binding.shimmerViewContainer;
-        shimmerFrameLayout.startShimmer();
+        // setup the RecyclerView
+        setupRecyclerView();
+        // populate the list
+        fillRecyclerView();
 
-        //
-        restaurantList = new ArrayList<>();
-        restaurantAdapter = new RestaurantAdapter(restaurantList, this, this);
+        /*** End of Recycler View Code ***/
+
+
+
+        /*** Navigation Bar Code ***/
+
+        // Navigation Bar Buttons
+        setupButtons();
+
+        // # On Click
+        nav_profile.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                navigateToProfileActivity();
+            }
+        });
+
+        nav_orders.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                navigateToOrdersActivity();
+            }
+        });
+
+        nav_cart.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                navigateToCartActivity();
+            }
+        });
+
+        /* Logout Functionality */
+
+        logout_btn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                logoutUser();
+            }
+        });
+
+        /* End of Logout Functionality */
+
+
+        /*** End of Navigation Bar Code ***/
+
+
+    } // end of onCreate
+
+
+
+    /*** Recycler View Supporting Functionalities ***/
+
+    protected void fillRecyclerView()
+    {
+        /*** Getting Recycler Data ***/
 
         // Get a reference to our posts
         database = FirebaseDatabase.getInstance();
         ref = database.getReference("restaurants");
-
-
 
         // Attach a listener to read the data at our posts reference
         ref.addValueEventListener(new ValueEventListener()
@@ -136,72 +189,36 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
             }
         });
 
+        /*** End of Data Population Code ***/
 
 
+    } // end of fillRecyclerView
+
+
+    // Initialize the RecyclerView
+    protected void setupRecyclerView()
+    {
+        //
+        shimmerFrameLayout = binding.shimmerViewContainer;
+        shimmerFrameLayout.setVisibility(View.VISIBLE);
+        shimmerFrameLayout.startShimmer();
+
+        //
+        restaurantList = new ArrayList<>();
+        restaurantAdapter = new RestaurantAdapter(restaurantList, this, this);
+
+        //
         restaurantRecyclerView = binding.mainRecyclerView;
         restaurantRecyclerView.setAdapter(restaurantAdapter);
         restaurantRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+    }
 
 
-        /*** End of Recycler View Code ***/
-
-
-
-        /*** Navigation Bar Code ***/
-
-        // # Required Buttons
-        nav_profile = binding.navProfileBtn;
-        logout_btn = binding.logoutButton;
-        nav_orders = binding.navOrderBtn;
-        nav_cart = binding.navCartBtn;
-
-        // # On Click
-        nav_profile.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v) {
-                navigateToProfileActivity();
-            }
-        });
-
-        nav_orders.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v) {
-                navigateToOrdersActivity();
-            }
-        });
-
-        nav_cart.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v) {
-                navigateToCartActivity();
-            }
-        });
-
-        /* Logout Functionality */
-
-        logout_btn.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                logoutUser();
-            }
-        });
-
-        /* End of Logout Functionality */
-
-
-        /*** End of Navigation Bar Code ***/
+    /*** End of Recycler View Supporting Functionalities ***/
 
 
 
-
-
-    } // end of onCreate
 
     /*** Logout Supporting Functionalities ***/
 
@@ -225,28 +242,35 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     /*** End of LogoutSupporting Functionalities ***/
 
 
+
+
     /*** Navigation Supporting Functionalities ***/
 
+    protected void setupButtons()
+    {
+        // # Required Buttons
+        nav_profile = binding.navProfileBtn;
+        logout_btn = binding.logoutButton;
+        nav_orders = binding.navOrderBtn;
+        nav_cart = binding.navCartBtn;
+    }
 
     void navigateToProfileActivity()
     {
         Intent intent = new Intent(MainActivity.this,ProfileActivity.class);
         startActivity(intent);
-        finish();
     }
 
     void navigateToCartActivity()
     {
         Intent intent = new Intent(MainActivity.this,CartActivity.class);
         startActivity(intent);
-        finish();
     }
 
     void navigateToOrdersActivity()
     {
         Intent intent = new Intent(MainActivity.this,OrdersActivity.class);
         startActivity(intent);
-        finish();
     }
 
     @Override
@@ -255,11 +279,29 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
         Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
         intent.putExtra("restaurant", restaurantModel);
         startActivity(intent);
-        finish();
     }
 
-
     /*** End of Navigation Supporting Functionalities ***/
+
+
+
+
+    /** Life cycle methods **/
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+    }
+
+    @Override
+    protected void onStop()
+    {
+        super.onStop();
+    }
+
+    /** End of Life cycle methods **/
+
 
 
 

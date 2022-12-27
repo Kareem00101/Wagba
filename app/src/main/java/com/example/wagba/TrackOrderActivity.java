@@ -1,12 +1,11 @@
 package com.example.wagba;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.res.ResourcesCompat;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.wagba.databinding.ActivityTrackOrderBinding;
 import com.shuhart.stepview.StepView;
@@ -22,7 +21,7 @@ public class TrackOrderActivity extends AppCompatActivity
     Button back_btn;
     StepView order_track_steps;
 
-
+    //
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -44,7 +43,7 @@ public class TrackOrderActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                navigateToMainActivity();
+                onBackPressed();
             }
         });
 
@@ -80,10 +79,29 @@ public class TrackOrderActivity extends AppCompatActivity
     {
         Intent intent = new Intent(TrackOrderActivity.this,MainActivity.class);
         startActivity(intent);
-        finish();
     }
 
     /*** End of Supporting Functionalities ***/
+
+
+//    /*** Handle Back Button ***/
+//    @Override
+//    public void onBackPressed()
+//    {
+//        navigateToMainActivity();
+//    }
+//    /*** End of Handle Back Button ***/
+
+
+
+    /*** Lifecycle Methods ***/
+    @Override
+    protected void onStop()
+    {
+        super.onStop();
+        finish();
+    }
+    /*** End of Lifecycle Methods ***/
 
 
 } // end of Class
