@@ -7,6 +7,7 @@ public class DishModel implements Serializable
     public String dish_name;
     public double dish_price;
     public String dish_image;
+    public int dish_quantity = 0;
 
     public DishModel(String dish_name, double dish_price, String dish_image)
     {
@@ -43,6 +44,16 @@ public class DishModel implements Serializable
     public void setDish_image(String dish_image)
     {
         this.dish_image = dish_image;
+    }
+
+    public int getDish_quantity()
+    {
+        return dish_quantity;
+    }
+
+    public void setDish_quantity(int dish_quantity)
+    {
+        this.dish_quantity = dish_quantity;
     }
 
     @Override

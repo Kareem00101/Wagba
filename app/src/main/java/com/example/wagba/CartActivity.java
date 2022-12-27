@@ -6,8 +6,12 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wagba.databinding.ActivityCartBinding;
+
+import java.util.ArrayList;
 
 public class CartActivity extends AppCompatActivity {
 
@@ -15,6 +19,11 @@ public class CartActivity extends AppCompatActivity {
     private ActivityCartBinding binding;
     Button back_btn;
     Button order_now;
+
+    ArrayList<DishModel> orderedDishes;
+    RecyclerView cartRecyclerView;
+    DishAdapter dishAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +31,14 @@ public class CartActivity extends AppCompatActivity {
         /*Binding View*/
         binding = ActivityCartBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        Intent intent = this.getIntent();
+        orderedDishes = (ArrayList<DishModel>) intent.getSerializableExtra("orderedDishes");
+        dishAdapter = new DishAdapter(orderedDishes, this);
+        cartRecyclerView = binding.cartRecycler;
+        cartRecyclerView.setAdapter(dishAdapter);
+        cartRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
 
         /*** Navigation Bar Code ***/
 
@@ -48,11 +65,12 @@ public class CartActivity extends AppCompatActivity {
             }
         });
 
-        /*** Navigation Bar Code ***/
+        /*** End of Navigation Bar Code ***/
 
 
 
         /*** Calculating Total Price ***/
+
 
 
 

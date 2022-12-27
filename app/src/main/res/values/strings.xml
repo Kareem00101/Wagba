@@ -52,7 +52,7 @@
     <!-- Main Activity Strings -->
 
     <string name="profile_btn">Profile</string>
-    <string name="orders_btn">Orders</string>
+    <string name="orders_btn">Order History</string>
     <string name="cart_btn">Cart</string>
     <string name="logout_btn">Logout</string>
 

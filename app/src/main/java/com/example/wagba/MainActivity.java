@@ -104,13 +104,13 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
             }
         });
 
-        nav_cart.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v) {
-                navigateToCartActivity();
-            }
-        });
+//        nav_cart.setOnClickListener(new View.OnClickListener()
+//        {
+//            @Override
+//            public void onClick(View v) {
+//                navigateToCartActivity();
+//            }
+//        });
 
         /* Logout Functionality */
 
@@ -252,7 +252,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
         nav_profile = binding.navProfileBtn;
         logout_btn = binding.logoutButton;
         nav_orders = binding.navOrderBtn;
-        nav_cart = binding.navCartBtn;
+        //nav_cart = binding.navCartBtn;
     }
 
     void navigateToProfileActivity()

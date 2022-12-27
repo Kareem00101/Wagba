@@ -4,12 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wagba.databinding.ActivityRestaurantBinding;
+
+import java.util.ArrayList;
 
 public class RestaurantActivity extends AppCompatActivity {
 
@@ -88,6 +91,17 @@ public class RestaurantActivity extends AppCompatActivity {
     } // end of onCreate
 
 
+    /*** get ordered items from cart ***/
+    protected ArrayList<DishModel> getOrderedDishes()
+    {
+        return dishAdapter.getOrderedDishes();
+    }
+
+
+    /*** End of get ordered items from cart ***/
+
+
+
 
     /*** Supporting Functionalities ***/
 
@@ -101,7 +115,16 @@ public class RestaurantActivity extends AppCompatActivity {
     void navigateToCartActivity()
     {
         Intent intent = new Intent(RestaurantActivity.this,CartActivity.class);
-        startActivity(intent);
+        ArrayList<DishModel> orderedDishes = getOrderedDishes();
+        if (orderedDishes.size() > 0)
+        {
+            intent.putExtra("orderedDishes", orderedDishes);
+            startActivity(intent);
+        }
+        else
+        {
+            Toast.makeText(this, "No items selected", Toast.LENGTH_SHORT).show();
+        }
     }
 
     /*** End of Supporting Functionalities ***/

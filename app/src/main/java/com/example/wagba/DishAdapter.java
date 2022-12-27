@@ -17,8 +17,8 @@ import java.util.ArrayList;
 
 public class DishAdapter extends RecyclerView.Adapter<DishAdapter.DishViewHolder>
 {
-    private ArrayList<DishModel> dishList;
-    private Context context;
+    public ArrayList<DishModel> dishList;
+    public Context context;
 
     public DishAdapter(ArrayList<DishModel> dishList, Context context)
     {
@@ -31,7 +31,7 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.DishViewHolder
     public DishViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.dish_card, parent, false);
-        DishViewHolder dishViewHolder = new DishViewHolder(view);
+        DishViewHolder dishViewHolder = new DishViewHolder(view, this);
         return dishViewHolder;
     }
 
@@ -39,9 +39,12 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.DishViewHolder
     public void onBindViewHolder(@NonNull DishViewHolder holder, int position)
     {
         DishModel dishModel = dishList.get(position);
+
         holder.dishName.setText(dishModel.getDish_name());
         holder.dishPrice.setText(String.valueOf(dishModel.getDish_price()));
         Glide.with(context).load(dishModel.getDish_image()).into(holder.dishImage);
+
+        holder.noOfItems.setText(String.valueOf(dishModel.getDish_quantity()));
 
     }
 
@@ -49,6 +52,20 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.DishViewHolder
     public int getItemCount()
     {
         return dishList.size();
+    }
+
+    public ArrayList<DishModel> getOrderedDishes()
+    {
+        ArrayList<DishModel> orderedDishes = new ArrayList<>();
+
+        for (DishModel dish : dishList)
+        {
+            if (dish.getDish_quantity() > 0)
+            {
+                orderedDishes.add(dish);
+            }
+        }
+        return orderedDishes;
     }
 
     public static class DishViewHolder extends RecyclerView.ViewHolder
@@ -61,9 +78,10 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.DishViewHolder
         ImageFilterButton incBtn;
         ImageFilterButton decBtn;
 
-        public DishViewHolder(@NonNull View itemView)
+        public DishViewHolder(@NonNull View itemView, DishAdapter dishAdapter)
         {
             super(itemView);
+
             dishName = itemView.findViewById(R.id.dish_card_title_txt);
             dishPrice = itemView.findViewById(R.id.dish_card_dish_price);
             dishImage = itemView.findViewById(R.id.dish_card_image);
@@ -71,6 +89,17 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.DishViewHolder
             incBtn = itemView.findViewById(R.id.dish_increment_btn);
             decBtn = itemView.findViewById(R.id.dish_decrement_btn);
             noOfItems = itemView.findViewById(R.id.dish_quantity);
+
+
+            if(dishAdapter.context.getClass().getSimpleName().equals("CartActivity"))
+            {
+                incBtn.setVisibility(View.GONE);
+                decBtn.setVisibility(View.GONE);
+
+                //DishModel currentDish = dishAdapter.dishList.get(getBindingAdapterPosition());
+                //noOfItems.setText(currentDish.getDish_quantity() + "");
+            }
+
 
             incBtn.setOnClickListener(new View.OnClickListener()
             {
@@ -80,6 +109,7 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.DishViewHolder
                     int currentQuantity = Integer.parseInt(noOfItems.getText().toString());
                     currentQuantity++;
                     noOfItems.setText(String.valueOf(currentQuantity));
+                    dishAdapter.dishList.get(getBindingAdapterPosition()).setDish_quantity(currentQuantity);
                 }
             });
 
@@ -94,6 +124,7 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.DishViewHolder
                         currentQuantity--;
                         noOfItems.setText(String.valueOf(currentQuantity));
                     }
+                    dishAdapter.dishList.get(getBindingAdapterPosition()).setDish_quantity(currentQuantity);
                 }
             });
         }
