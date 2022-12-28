@@ -4,64 +4,64 @@ import java.io.Serializable;
 
 public class DishModel implements Serializable
 {
-    public String dish_name;
-    public double dish_price;
-    public String dish_image;
-    public int dish_quantity = 0;
+    public String dishName;
+    public double dishPrice;
+    public String dishImage;
+    public int dishQuantity = 0;
 
     public DishModel(String dish_name, double dish_price, String dish_image)
     {
-        this.dish_name = dish_name;
-        this.dish_price = dish_price;
-        this.dish_image = dish_image;
+        this.dishName = dish_name;
+        this.dishPrice = dish_price;
+        this.dishImage = dish_image;
     }
 
     public String getDishName()
     {
-        return dish_name;
+        return dishName;
     }
 
     public void setDishName(String dish_name)
     {
-        this.dish_name = dish_name;
+        this.dishName = dish_name;
     }
 
     public double getDishPrice()
     {
-        return dish_price;
+        return dishPrice;
     }
 
     public void setDishPrice(double dish_price)
     {
-        this.dish_price = dish_price;
+        this.dishPrice = dish_price;
     }
 
     public String getDishImage()
     {
-        return dish_image;
+        return dishImage;
     }
 
     public void setDishImage(String dish_image)
     {
-        this.dish_image = dish_image;
+        this.dishImage = dish_image;
     }
 
     public int getDishQuantity()
     {
-        return dish_quantity;
+        return dishQuantity;
     }
 
     public void setDishQuantity(int dish_quantity)
     {
-        this.dish_quantity = dish_quantity;
+        this.dishQuantity = dish_quantity;
     }
 
     @Override
     public String toString() {
         return "DishModel{" +
-                "dish_name='" + dish_name + '\'' +
-                ", dish_price=" + dish_price +
-                ", dish_image='" + dish_image + '\'' +
+                "dish_name='" + dishName + '\'' +
+                ", dish_price=" + dishPrice +
+                ", dish_image='" + dishImage + '\'' +
                 '}';
     }
 }

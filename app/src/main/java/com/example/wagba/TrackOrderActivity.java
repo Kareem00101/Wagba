@@ -84,15 +84,6 @@ public class TrackOrderActivity extends AppCompatActivity
     /*** End of Supporting Functionalities ***/
 
 
-//    /*** Handle Back Button ***/
-//    @Override
-//    public void onBackPressed()
-//    {
-//        navigateToMainActivity();
-//    }
-//    /*** End of Handle Back Button ***/
-
-
 
     /*** Lifecycle Methods ***/
     @Override

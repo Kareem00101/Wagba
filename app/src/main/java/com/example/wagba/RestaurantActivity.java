@@ -25,6 +25,8 @@ public class RestaurantActivity extends AppCompatActivity {
     Button back_btn;
     Button go_to_cart_btn;
 
+    RestaurantModel myRestaurant;
+
     //
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,7 +41,7 @@ public class RestaurantActivity extends AppCompatActivity {
 
         /*** Recycler View Code ***/
 
-        RestaurantModel myRestaurant = (RestaurantModel) getIntent().getSerializableExtra("restaurant");
+        myRestaurant = (RestaurantModel) getIntent().getSerializableExtra("restaurant");
         dishRecyclerView = binding.dishesRecyclerView;
         dishAdapter = new DishAdapter(myRestaurant.getRestaurant_dishes(), this);
         dishRecyclerView.setAdapter(dishAdapter);
@@ -105,12 +107,6 @@ public class RestaurantActivity extends AppCompatActivity {
 
     /*** Supporting Functionalities ***/
 
-    // # Navigate to Main Intent
-    void navigateToMainActivity()
-    {
-        Intent intent = new Intent(RestaurantActivity.this, MainActivity.class);
-        startActivity(intent);
-    }
 
     void navigateToCartActivity()
     {
@@ -119,6 +115,7 @@ public class RestaurantActivity extends AppCompatActivity {
         if (orderedDishes.size() > 0)
         {
             intent.putExtra("orderedDishes", orderedDishes);
+            intent.putExtra("restaurantName", myRestaurant.getRestaurantName());
             startActivity(intent);
         }
         else
