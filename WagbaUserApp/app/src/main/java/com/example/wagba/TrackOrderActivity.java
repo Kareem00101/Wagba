@@ -118,6 +118,12 @@ public class TrackOrderActivity extends AppCompatActivity
                     {
                         order_track_steps.go(3, true);
                     }
+                    else if (orderStatus.equals("Canceled"))
+                    {
+                        order_track_steps.go(0, true);
+                        Toast.makeText(TrackOrderActivity.this, "Order Canceled", Toast.LENGTH_SHORT).show();
+                        onBackPressed();
+                    }
                 }
             }
 
