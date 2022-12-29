@@ -4,10 +4,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.wagba.databinding.ActivityTrackOrderBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.shuhart.stepview.StepView;
 
 import java.util.ArrayList;
@@ -26,6 +34,10 @@ public class TrackOrderActivity extends AppCompatActivity
     TextView trackDeliveryPeriodTxt;
     TextView trackTotalPrice;
 
+    /*Firebase*/
+    private DatabaseReference ref;
+    private FirebaseDatabase database;
+
     //
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -42,7 +54,7 @@ public class TrackOrderActivity extends AppCompatActivity
         setupTexts();
 
 
-        // ** Navigation Code Start
+        /*** Navigation Code Start ***/
 
         // buttons
         back_btn = binding.trackOrderBackBtn;
@@ -57,11 +69,11 @@ public class TrackOrderActivity extends AppCompatActivity
             }
         });
 
-        // Navigation Code End **
+        /*** Navigation Code End **/
 
 
 
-        /*** Handling Step View Code ***/
+        /*** Setting Up The Step View Code ***/
 
 
         // # step view
@@ -73,10 +85,50 @@ public class TrackOrderActivity extends AppCompatActivity
             add("Delivered");
         }}).commit();
 
-        order_track_steps.go(1, true);
+        /*** End of Setting Up Step View Code ***/
 
 
-        /*** End of Handling Step View Code ***/
+        /*** Handling Step View Updates ***/
+
+        database = FirebaseDatabase.getInstance();
+        String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        ref = database.getReference("orders/" + userID + "/" + getIntent().getStringExtra("orderID"));
+
+        ref.addValueEventListener(new ValueEventListener()
+        {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot)
+            {
+                if (snapshot.exists())
+                {
+                    String orderStatus = snapshot.child("orderStatus").getValue().toString();
+                    if (orderStatus.equals("Placed"))
+                    {
+                        order_track_steps.go(0, true);
+                    }
+                    else if (orderStatus.equals("Confirmed"))
+                    {
+                        order_track_steps.go(1, true);
+                    }
+                    else if (orderStatus.equals("Delivering"))
+                    {
+                        order_track_steps.go(2, true);
+                    }
+                    else if (orderStatus.equals("Delivered"))
+                    {
+                        order_track_steps.go(3, true);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error)
+            {
+                Toast.makeText(TrackOrderActivity.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        /*** End of Handling Step View Updates ***/
 
 
 

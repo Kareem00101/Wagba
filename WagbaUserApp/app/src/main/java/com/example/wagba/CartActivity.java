@@ -39,6 +39,7 @@ public class CartActivity extends AppCompatActivity
     Boolean periodFlag = false;
     String selectedPeriod = "";
     String selectedGate = "";
+    String orderID;
 
     Calendar calendar;
 
@@ -263,6 +264,7 @@ public class CartActivity extends AppCompatActivity
         intent.putExtra("gateTxt", deliveryGateTxt);
         intent.putExtra("priceTxt", deliveryPeriodTxt);
         intent.putExtra("periodTxt", orderTotalPriceTxt);
+        intent.putExtra("orderID", orderID);
 
         startActivity(intent);
     }
@@ -279,7 +281,7 @@ public class CartActivity extends AppCompatActivity
     void addOrderToFirebase()
     {
         // # Required Variables
-        String orderID = UUID.randomUUID().toString();
+        orderID = UUID.randomUUID().toString();
         String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         String orderStatus = "Placed";
         String orderGate = selectedGate;
@@ -294,7 +296,6 @@ public class CartActivity extends AppCompatActivity
 
         // format the Calendar instance to a string using the SimpleDateFormat instance
         String dateString = dateFormat.format(calendar.getTime());
-
         // # Creating Order Object
         NewOrderModel order = new NewOrderModel(orderID, userID, restaurantName, restaurantImage, orderStatus, orderGate, orderPeriod, totalPrice, itemsPrice, deliveryCost, orderedDishes, dateString);
         // # Adding Order to Firebase
