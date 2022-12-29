@@ -1,9 +1,9 @@
 package com.example.wagba;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,8 +18,13 @@ public class TrackOrderActivity extends AppCompatActivity
 
     /*View Binding Variable*/
     private com.example.wagba.databinding.ActivityTrackOrderBinding binding;
+
     Button back_btn;
     StepView order_track_steps;
+
+    TextView trackDeliveryGateTxt;
+    TextView trackDeliveryPeriodTxt;
+    TextView trackTotalPrice;
 
     //
     @Override
@@ -28,16 +33,21 @@ public class TrackOrderActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
 
 
-        /*Binding View*/
+        // ** Binding View * /
         binding = ActivityTrackOrderBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        /*** Navigation Code ***/
 
-        // # buttons
+        // ** Setup Text
+        setupTexts();
+
+
+        // ** Navigation Code Start
+
+        // buttons
         back_btn = binding.trackOrderBackBtn;
 
-        // # on click
+        // on click
         back_btn.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -47,8 +57,8 @@ public class TrackOrderActivity extends AppCompatActivity
             }
         });
 
+        // Navigation Code End **
 
-        /*** End of Navigation Code ***/
 
 
         /*** Handling Step View Code ***/
@@ -70,15 +80,22 @@ public class TrackOrderActivity extends AppCompatActivity
 
 
 
+
     } // end of onCreate
+
 
 
     /*** Supporting Functionalities ***/
 
-    void navigateToMainActivity()
+    void setupTexts()
     {
-        Intent intent = new Intent(TrackOrderActivity.this,MainActivity.class);
-        startActivity(intent);
+        trackTotalPrice = binding.trackTotalPriceTxt;
+        trackDeliveryGateTxt = binding.trackDeliveryGateTxt;
+        trackDeliveryPeriodTxt = binding.trackDeliveryPeriodTxt;
+
+        trackTotalPrice.setText(getIntent().getStringExtra("priceTxt"));
+        trackDeliveryGateTxt.setText(getIntent().getStringExtra("gateTxt"));
+        trackDeliveryPeriodTxt.setText(getIntent().getStringExtra("periodTxt"));
     }
 
     /*** End of Supporting Functionalities ***/

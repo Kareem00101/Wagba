@@ -104,14 +104,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
             }
         });
 
-//        nav_cart.setOnClickListener(new View.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(View v) {
-//                navigateToCartActivity();
-//            }
-//        });
-
         /* Logout Functionality */
 
         logout_btn.setOnClickListener(new View.OnClickListener()

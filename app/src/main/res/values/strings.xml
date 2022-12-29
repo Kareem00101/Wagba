@@ -131,7 +131,18 @@
     <string name="dish_card_dish_price_txt">0.00</string>
     <string name="dish_card_dish_quantity_txt">0</string>
     <string name="dish_card_image_content">Dish Image</string>
-
     <!-- End of Dish Card Strings -->
+
+    <!-- Order Card Strings -->
+    <string name="order_id_txt">Order ID:</string>
+    <string name="ocard_oid">4n23jou23hoibthitug5oi4b4f</string>
+
+    <string name="ocard_restaurant_name">Wagba</string>
+    <string name="ocard_tprice_txt">Total Price:</string>
+
+    <string name="ocard_tprice">300EGP</string>
+    <string name="ocard_order_status">Delivered</string>
+
+    <!-- End of Order Card Strings -->
 
 </resources>

@@ -20,7 +20,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.UUID;
 
-public class CartActivity extends AppCompatActivity {
+public class CartActivity extends AppCompatActivity
+{
 
     /*View Binding Variable*/
     private ActivityCartBinding binding;
@@ -45,7 +46,8 @@ public class CartActivity extends AppCompatActivity {
     Double deliveryCost;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
 
         /*Binding View*/
@@ -72,6 +74,8 @@ public class CartActivity extends AppCompatActivity {
             }
         });
 
+
+
         /*** Order Functionality ***/
 
         order_now.setOnClickListener(new View.OnClickListener()
@@ -89,7 +93,9 @@ public class CartActivity extends AppCompatActivity {
 
         /*** End of Order Functionality ***/
 
+
         /* End of Navigation Bar Code */
+
 
 
         /* Calculating Total Price */
@@ -98,6 +104,8 @@ public class CartActivity extends AppCompatActivity {
         setupPrices();
 
         /* End of Calculating Total Price */
+
+
 
 
     } // End of onCreate
@@ -134,6 +142,9 @@ public class CartActivity extends AppCompatActivity {
 
 
     /*** End of Payment Functionalities ***/
+
+
+
 
     /*** Handling Radios Selection ***/
 
@@ -203,12 +214,14 @@ public class CartActivity extends AppCompatActivity {
             {
                 periodFlag = true;
             }
+
             else
             {
                 Toast.makeText(this, "Please Select a Valid Period", Toast.LENGTH_SHORT).show();
                 periodFlag = false;
             }
         }
+
         else
         {
             Toast.makeText(this, "Unexpected Error", Toast.LENGTH_SHORT).show();
@@ -218,6 +231,8 @@ public class CartActivity extends AppCompatActivity {
 
 
     /*** End of Handling Radios Selection ***/
+
+
 
 
     /*** Supporting Functionalities ***/
@@ -237,15 +252,26 @@ public class CartActivity extends AppCompatActivity {
     void navigateToTrackOrderActivity()
     {
         Intent intent = new Intent(CartActivity.this,TrackOrderActivity.class);
-        intent.putExtra("selectedGate", selectedGate);
-        intent.putExtra("selectedPeriod", selectedPeriod);
+
+        String orderTotalPriceTxt = "Order total price: " + totalPrice;
+        String deliveryGateTxt = "Order delivering to gate: " + selectedGate;
+        String deliveryPeriodTxt = "Order should be delivered by: " + selectedPeriod;
+
+        intent.putExtra("gateTxt", deliveryGateTxt);
+        intent.putExtra("priceTxt", deliveryPeriodTxt);
+        intent.putExtra("periodTxt", orderTotalPriceTxt);
+
         startActivity(intent);
     }
 
 
     /*** End of Supporting Functionalities ***/
 
+
+
+
     /*** Firebase Functionalities ***/
+
 
     void addOrderToFirebase()
     {
@@ -256,14 +282,17 @@ public class CartActivity extends AppCompatActivity {
         String orderGate = selectedGate;
         String orderPeriod = selectedPeriod;
         String restaurantName = getIntent().getStringExtra("restaurantName");
+        String restaurantImage = getIntent().getStringExtra("restaurantImage");
         // # Creating Order Object
-        OrderModel order = new OrderModel(orderID, userID, restaurantName, orderStatus, orderGate, orderPeriod, totalPrice, itemsPrice, deliveryCost, orderedDishes);
+        NewOrderModel order = new NewOrderModel(orderID, userID, restaurantName, restaurantImage, orderStatus, orderGate, orderPeriod, totalPrice, itemsPrice, deliveryCost, orderedDishes);
         // # Adding Order to Firebase
         FirebaseDatabase.getInstance().getReference("orders").child(userID).child(orderID).setValue(order);
     }
 
 
     /*** End of Firebase Functionalities ***/
+
+
 
 
     /*** Lifecycle Methods ***/

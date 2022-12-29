@@ -287,6 +287,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/delivery_guy_photo_card"
                 app:layout_constraintStart_toEndOf="@+id/delivery_guy_photo_card"
                 tools:ignore="TextContrastCheck,TextContrastCheck" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 

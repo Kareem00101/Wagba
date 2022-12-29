@@ -116,6 +116,7 @@ public class RestaurantActivity extends AppCompatActivity {
         {
             intent.putExtra("orderedDishes", orderedDishes);
             intent.putExtra("restaurantName", myRestaurant.getRestaurantName());
+            intent.putExtra("restaurantImage", myRestaurant.getRestaurantImage());
             startActivity(intent);
         }
         else

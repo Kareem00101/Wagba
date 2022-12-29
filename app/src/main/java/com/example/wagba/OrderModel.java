@@ -1,32 +1,83 @@
 package com.example.wagba;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class OrderModel implements Serializable
 {
-    public String orderID;
-    public String userID;
+    public String oid;
     public String restaurantName;
+    public String restaurantImage;
     public String orderStatus;
-    public String orderGate;
-    public String orderPeriod;
-    public Double totalPrice;
-    public Double itemsPrice;
-    public Double deliveryCost;
-    public ArrayList<DishModel> orderedDishes;
+    public String orderTotalPrice;
 
-    public OrderModel(String orderID, String userID, String restaurantName, String orderStatus, String orderGate, String orderPeriod, Double totalPrice, Double itemsPrice, Double deliveryCost, ArrayList<DishModel> orderedDishes)
+    public OrderModel(String oid, String restaurantName, String restaurantImage, String orderStatus, String orderTotalPrice)
     {
-        this.orderID = orderID;
-        this.userID = userID;
+        this.oid = oid;
         this.restaurantName = restaurantName;
+        this.restaurantImage = restaurantImage;
         this.orderStatus = orderStatus;
-        this.orderGate = orderGate;
-        this.orderPeriod = orderPeriod;
-        this.totalPrice = totalPrice;
-        this.itemsPrice = itemsPrice;
-        this.deliveryCost = deliveryCost;
-        this.orderedDishes = orderedDishes;
+        this.orderTotalPrice = orderTotalPrice;
+    }
+
+    public String getOid()
+    {
+        return oid;
+    }
+
+    public void setOid(String oid)
+    {
+        this.oid = oid;
+    }
+
+    public String getRestaurantName()
+    {
+        return restaurantName;
+    }
+
+    public void setRestaurantName(String restaurantName)
+    {
+        this.restaurantName = restaurantName;
+    }
+
+    public String getRestaurantImage()
+    {
+        return restaurantImage;
+    }
+
+    public void setRestaurantImage(String restaurantImage)
+    {
+        this.restaurantImage = restaurantImage;
+    }
+
+    public String getOrderStatus()
+    {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(String orderStatus)
+    {
+        this.orderStatus = orderStatus;
+    }
+
+    public String getOrderTotalPrice()
+    {
+        return orderTotalPrice;
+    }
+
+    public void setOrderTotalPrice(String orderTotalPrice)
+    {
+        this.orderTotalPrice = orderTotalPrice;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "OrderModel{" +
+                "oid='" + oid + '\'' +
+                ", restaurantName='" + restaurantName + '\'' +
+                ", restaurantImage='" + restaurantImage + '\'' +
+                ", orderStatus='" + orderStatus + '\'' +
+                ", orderTotalPrice='" + orderTotalPrice + '\'' +
+                '}';
     }
 }
