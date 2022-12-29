@@ -60,6 +60,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         if(orderModel.getOrderStatus().equals("Canceled"))
         {
             holder.advanceOrderStateBtn.setVisibility(View.GONE);
+            holder.cancelOrderBtn.setVisibility(View.GONE);
         }
         if(orderModel.getOrderStatus().equals("Delivered"))
         {
