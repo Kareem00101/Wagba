@@ -16,6 +16,7 @@ import com.example.wagba.databinding.ActivityCartBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.UUID;
@@ -44,6 +45,8 @@ public class CartActivity extends AppCompatActivity
     Double totalPrice;
     Double itemsPrice;
     Double deliveryCost;
+
+    SimpleDateFormat dateFormat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -283,8 +286,17 @@ public class CartActivity extends AppCompatActivity
         String orderPeriod = selectedPeriod;
         String restaurantName = getIntent().getStringExtra("restaurantName");
         String restaurantImage = getIntent().getStringExtra("restaurantImage");
+
+        Calendar calendar = Calendar.getInstance();
+
+        // create a new SimpleDateFormat instance with the desired date and time format
+        dateFormat = new SimpleDateFormat("EEEE, MMMM d, yyyy h:mm a");
+
+        // format the Calendar instance to a string using the SimpleDateFormat instance
+        String dateString = dateFormat.format(calendar.getTime());
+
         // # Creating Order Object
-        NewOrderModel order = new NewOrderModel(orderID, userID, restaurantName, restaurantImage, orderStatus, orderGate, orderPeriod, totalPrice, itemsPrice, deliveryCost, orderedDishes);
+        NewOrderModel order = new NewOrderModel(orderID, userID, restaurantName, restaurantImage, orderStatus, orderGate, orderPeriod, totalPrice, itemsPrice, deliveryCost, orderedDishes, dateString);
         // # Adding Order to Firebase
         FirebaseDatabase.getInstance().getReference("orders").child(userID).child(orderID).setValue(order);
     }

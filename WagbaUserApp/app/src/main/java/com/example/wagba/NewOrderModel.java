@@ -16,7 +16,9 @@ public class NewOrderModel implements Serializable {
     public Double deliveryCost;
     public ArrayList<DishModel> orderedDishes;
 
-    public NewOrderModel(String orderID, String userID, String restaurantName, String restaurantImage, String orderStatus, String orderGate, String orderPeriod, Double totalPrice, Double itemsPrice, Double deliveryCost, ArrayList<DishModel> orderedDishes) {
+    public String orderDate;
+
+    public NewOrderModel(String orderID, String userID, String restaurantName, String restaurantImage, String orderStatus, String orderGate, String orderPeriod, Double totalPrice, Double itemsPrice, Double deliveryCost, ArrayList<DishModel> orderedDishes, String dateString) {
         this.orderID = orderID;
         this.userID = userID;
         this.restaurantName = restaurantName;
@@ -28,6 +30,7 @@ public class NewOrderModel implements Serializable {
         this.itemsPrice = itemsPrice;
         this.deliveryCost = deliveryCost;
         this.orderedDishes = orderedDishes;
+        this.orderDate = dateString;
     }
 
     public String getOrderID()
@@ -140,6 +143,16 @@ public class NewOrderModel implements Serializable {
         this.orderedDishes = orderedDishes;
     }
 
+    public String getOrderDate()
+    {
+        return orderDate;
+    }
+
+    public void setOrderDate(String orderDate)
+    {
+        this.orderDate = orderDate;
+    }
+
     @Override
     public String toString()
     {
@@ -155,6 +168,7 @@ public class NewOrderModel implements Serializable {
                 ", itemsPrice=" + itemsPrice +
                 ", deliveryCost=" + deliveryCost +
                 ", orderedDishes=" + orderedDishes +
+                ", dateString='" + orderDate + '\'' +
                 '}';
     }
 }
