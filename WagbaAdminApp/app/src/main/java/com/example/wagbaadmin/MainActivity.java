@@ -51,9 +51,16 @@ public class MainActivity extends AppCompatActivity
         // setup the RecyclerView
         setupRecyclerView();
         // populate the list
-        fillRecyclerView();
+        //fillRecyclerView();
 
         /*** End of Recycler View Code ***/
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        fillRecyclerView();
     }
 
     private void setupRecyclerView()
